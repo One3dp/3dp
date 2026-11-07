@@ -108,6 +108,8 @@
 .imgbox .noimg,.mimg .noimg{display:block;width:100%;height:100%;background:linear-gradient(135deg,var(--blue-soft),var(--purple-soft));}
 .imgbox .noimg::after,.mimg .noimg::after{content:"⬡";display:flex;align-items:center;justify-content:center;height:100%;font-size:34px;opacity:.3;color:var(--blue);}
 </style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141414'/%3E%3Cpath d='M16 6l9 5v10l-9 5-9-5V11z' fill='none' stroke='%23e64b23' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/site.css">
 </head>
 <body data-theme="light">
 <nav class="topnav">
@@ -127,7 +129,7 @@
 </nav>
 <div class="wrap">
 <header class="hero">
-  <h1>🖨️ 3D打印动态日报</h1>
+  <h1>3D打印动态日报</h1>
   <div class="sub">9月13日 · 星期日 · 北京时间 UTC+8 · 覆盖窗口：2026-09-11 23:38 ~ 2026-09-13 23:38（近 48 小时）</div>
   <div class="statbar"><div class="stat"><b>9</b><span>硬件/软件/技术/应用动态</span></div><div class="stat"><b>24</b><span>模型榜 本周热门（MW 国内12+国际12 + Printables12）</span></div><div class="stat restricted"><b>0</b><span>抖音（登录态失效 · 本次受限）</span></div><div class="stat restricted"><b>0</b><span>小红书（登录态失效 · 本次受限）</span></div></div>
   <div class="btns"><a class="pbtn" href="index.html">← 返回工作站</a></div>
@@ -783,5 +785,6 @@ document.querySelectorAll('.tbtn').forEach(function(b){b.addEventListener('click
 try{var sv=localStorage.getItem(THEME_KEY);if(sv)applyTheme(sv);}catch(e){}
 })();
 </script>
+<script src="../assets/site.js"></script>
 </body>
 </html>

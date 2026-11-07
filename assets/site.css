@@ -1,0 +1,249 @@
+/* ============================================================
+   One3DP · 3D PRINT WORKSTATION — 全站统一皮肤
+   与新版首页同一套设计语言：纸白 / 墨黑 / 一抹朱橙，直角、细线、无阴影
+   本文件加载顺序在原页面 <style> 之后，用同名变量与更高特异性接管外观
+   ============================================================ */
+
+/* ---------- 1. 基准 token ---------- */
+:root{
+  --ws-bg:#f6f6f3;
+  --ws-surface:#ffffff;
+  --ws-ink:#141414;
+  --ws-muted:#8b8b84;
+  --ws-line:#deded7;
+  --ws-line-soft:#eaeae4;
+  --ws-accent:#e64b23;
+  --ws-accent-soft:#fceee9;
+  --ws-sel:rgba(230,75,35,.10);
+  --ws-mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --ws-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+body[data-theme="dark"]{
+  --ws-bg:#0e0e0d;
+  --ws-surface:#161615;
+  --ws-ink:#f2f2ed;
+  --ws-muted:#8d8d86;
+  --ws-line:#2c2c29;
+  --ws-line-soft:#232321;
+  --ws-accent:#ff6a3d;
+  --ws-accent-soft:#2a1811;
+  --ws-sel:rgba(255,106,61,.14);
+}
+
+/* ---------- 2. 旧变量整体映射到新配色 ---------- */
+:root{
+  --bg:var(--ws-bg); --card:var(--ws-surface); --ink:var(--ws-ink);
+  --muted:var(--ws-muted); --line:var(--ws-line);
+  --accent:var(--ws-accent); --accent2:var(--ws-ink);
+  --blue:var(--ws-accent); --blue2:var(--ws-accent); --blue-soft:var(--ws-accent-soft);
+  --purple:var(--ws-accent); --purple2:var(--ws-accent); --purple-soft:var(--ws-accent-soft);
+  --teal:var(--ws-ink); --teal2:var(--ws-ink); --teal-soft:var(--ws-line-soft);
+  --green:var(--ws-ink); --green2:var(--ws-ink); --green-soft:var(--ws-line-soft);
+  --green-dark:var(--ws-ink); --green-light:var(--ws-line-soft);
+  --orange:var(--ws-accent); --orange2:var(--ws-accent); --orange-soft:var(--ws-accent-soft);
+  --pink:var(--ws-accent); --pink2:var(--ws-accent); --pink-soft:var(--ws-accent-soft);
+  --amber:var(--ws-accent); --amber-bg:var(--ws-accent-soft); --red:#c3372b;
+  --shadow-s:none; --shadow-m:none; --r:0;
+}
+body[data-theme="dark"]{
+  --bg:var(--ws-bg); --card:var(--ws-surface); --ink:var(--ws-ink);
+  --muted:var(--ws-muted); --line:var(--ws-line);
+  --accent:var(--ws-accent); --accent2:var(--ws-ink);
+  --blue:var(--ws-accent); --blue2:var(--ws-accent); --blue-soft:var(--ws-accent-soft);
+  --purple:var(--ws-accent); --purple2:var(--ws-accent); --purple-soft:var(--ws-accent-soft);
+  --teal:var(--ws-ink); --teal2:var(--ws-ink); --teal-soft:var(--ws-line-soft);
+  --green:var(--ws-ink); --green2:var(--ws-ink); --green-soft:var(--ws-line-soft);
+  --green-dark:var(--ws-ink); --green-light:var(--ws-line-soft);
+  --orange:var(--ws-accent); --orange2:var(--ws-accent); --orange-soft:var(--ws-accent-soft);
+  --pink:var(--ws-accent); --pink2:var(--ws-accent); --pink-soft:var(--ws-accent-soft);
+  --amber:var(--ws-accent); --amber-bg:var(--ws-accent-soft); --red:#f87171;
+  --shadow-s:none; --shadow-m:none; --r:0;
+}
+
+/* ---------- 3. 全局：直角、无阴影、统一字体 ---------- */
+body{
+  font-family:var(--ws-sans)!important;
+  background:var(--ws-bg)!important;
+  color:var(--ws-ink)!important;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+body *{border-radius:0!important;box-shadow:none!important}
+body a{color:inherit;text-decoration:none}
+::selection{background:var(--ws-sel)}
+body h1,body h2,body h3,body h4{letter-spacing:-.03em}
+body input,body select,body textarea,body button{font-family:var(--ws-sans)}
+body input,body select,body textarea{
+  background:var(--ws-surface);color:var(--ws-ink);
+  border:1px solid var(--ws-line);outline:none;
+}
+body input:focus,body select:focus,body textarea:focus{border-color:var(--ws-accent)}
+body table{border-collapse:collapse}
+body th,body td{border-bottom:1px solid var(--ws-line)}
+
+/* ---------- 4. 站内顶栏（子页已有 .topnav） ---------- */
+body .topnav{
+  position:sticky;top:0;z-index:80;
+  background:var(--ws-bg)!important;
+  border-bottom:1px solid var(--ws-line)!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+body .topnav .inner{height:72px;max-width:1280px;padding:0 40px;gap:44px;align-items:center}
+body .topnav .logo{font-size:16px;font-weight:700;letter-spacing:-.3px;gap:11px}
+body .topnav .logo .mark{
+  width:22px;height:22px;flex:none;
+  border:2px solid var(--ws-accent)!important;
+  background:transparent!important;color:transparent!important;font-size:0!important;
+  position:relative;display:inline-block;padding:0;
+}
+body .topnav .logo .mark::after{
+  content:"";position:absolute;inset:4px;
+  border:1px solid var(--ws-accent);opacity:.55;
+}
+body .topnav .navtabs{gap:30px;align-items:center}
+body .topnav .navtabs a{
+  font-size:13.5px;font-weight:400;padding:6px 0;
+  color:var(--ws-muted)!important;background:none!important;
+  position:relative;white-space:nowrap;transition:color .18s;
+}
+body .topnav .navtabs a::after{
+  content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;
+  background:var(--ws-accent);transition:right .22s;
+}
+body .topnav .navtabs a:hover,body .topnav .navtabs a.active{color:var(--ws-ink)!important;font-weight:600}
+body .topnav .navtabs a:hover::after,body .topnav .navtabs a.active::after{right:0}
+body .topnav .nav-right{margin-left:auto;gap:6px}
+/* 子页原生的两个主题按钮 → 与首页一致的细线图标 */
+body .tbtn{
+  width:30px;height:30px;border:none!important;background:transparent!important;
+  padding:0;position:relative;font-size:0;transition:color .18s;
+}
+body .tbtn::after{
+  content:"☀";position:absolute;inset:0;display:grid;place-items:center;
+  font-size:16px;line-height:1;color:var(--ws-muted);
+}
+body .tbtn.t-dark::after{content:"☾"}
+body .tbtn:hover{transform:none}
+body .tbtn:hover::after{color:var(--ws-ink)}
+body .tbtn.on::after{color:var(--ws-accent)}
+
+/* ---------- 5. 内容容器与页头 ---------- */
+body .wrap,body .page-wrap{max-width:1280px;margin:0 auto;padding-left:40px;padding-right:40px}
+body .page-hero{
+  background:var(--ws-bg)!important;color:var(--ws-ink)!important;
+  border-bottom:1px solid var(--ws-ink);
+  padding:46px 0 34px;margin-bottom:36px;
+}
+body .page-hero h1{font-size:clamp(34px,5vw,62px);font-weight:800;letter-spacing:-.05em;line-height:1.04}
+body .page-hero .sub{font-size:14px;color:var(--ws-muted);opacity:1;margin-top:14px;line-height:1.7}
+body .page-hero .acts{margin-left:auto}
+body .badge{
+  background:transparent!important;border:1px solid var(--ws-line)!important;
+  color:var(--ws-muted)!important;font-family:var(--ws-mono);font-size:11px;
+}
+body .badge b{color:var(--ws-ink)!important}
+body .pbtn{
+  background:transparent!important;border:1px solid var(--ws-line)!important;
+  color:var(--ws-ink)!important;font-weight:600;font-size:12.5px;padding:9px 15px;
+  transition:background .16s,color .16s,border-color .16s;
+}
+body .pbtn:hover{background:var(--ws-ink)!important;color:var(--ws-bg)!important;border-color:var(--ws-ink)!important}
+
+/* 卡片 / 表格 / 面板：细线直角，hover 用朱橙 */
+body .card,body .qcard,body .acard,body .mcard,body .pcard,body .tblcard,
+body .form-card,body .stat,body .field,body .toolbar,body .modal-card,body .toast,
+body .note,body .warn,body .hl,body .archrow,body .empty{
+  background:var(--ws-surface)!important;border:1px solid var(--ws-line)!important;
+}
+body .qcard:hover,body .archrow:hover,body .mcard:hover,body .pcard:hover{
+  border-color:var(--ws-accent)!important;background:var(--ws-surface)!important;
+  color:var(--ws-ink)!important;transform:none!important;
+}
+body .qcard .open,body .archrow .hg,body .hl,body .sec-title{color:var(--ws-accent)!important}
+body .credit{color:var(--ws-muted)!important}
+body .btn{
+  background:var(--ws-ink)!important;color:var(--ws-bg)!important;
+  border:1px solid var(--ws-ink)!important;transition:background .16s,border-color .16s;
+}
+body .btn:hover{background:var(--ws-accent)!important;border-color:var(--ws-accent)!important}
+body .ghost,body .act{
+  background:transparent!important;color:var(--ws-ink)!important;
+  border:1px solid var(--ws-line)!important;
+}
+body .ghost:hover,body .act:hover{border-color:var(--ws-accent)!important;color:var(--ws-accent)!important}
+
+/* ---------- 6. 归档日报页（archive/）专用 ---------- */
+body header.hero{
+  /* 报告封面固定为墨黑，深浅模式下都保持同一个视觉锚点 */
+  background:#141414!important;color:#f6f6f3!important;
+  padding:38px 34px!important;margin-bottom:22px;border-bottom:none;
+}
+body header.hero h1{font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-.045em}
+body header.hero .sub{opacity:.62;font-size:13.5px}
+body header.hero .stat{
+  background:transparent!important;border:1px solid currentColor!important;
+  color:inherit!important;opacity:.85;
+}
+body header.hero .stat span{opacity:.7}
+body h2.sec{
+  font-size:25px;font-weight:700;letter-spacing:-.035em;
+  border-bottom:1px solid var(--ws-ink);padding-bottom:12px;margin-top:42px;
+}
+body h2.sec .no{
+  background:var(--ws-accent)!important;color:#fff!important;
+  width:26px;height:26px;font-size:12px;font-family:var(--ws-mono);
+}
+body .tag,body .chip,body .badge2{
+  background:var(--ws-line-soft)!important;color:var(--ws-ink)!important;border:1px solid var(--ws-line)!important;
+}
+
+/* ---------- 7. 注入的统一顶栏（archive / 跳转页） ---------- */
+.ws-masthead{position:sticky;top:0;z-index:80;background:var(--ws-bg);border-bottom:1px solid var(--ws-line)}
+.ws-inner{height:72px;max-width:1280px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:44px;min-width:0}
+.ws-brand{display:flex;align-items:center;gap:11px;font-size:16px;font-weight:700;letter-spacing:-.3px;white-space:nowrap;flex:none}
+.ws-mark{width:22px;height:22px;border:2px solid var(--ws-accent);display:inline-block;position:relative;flex:none}
+.ws-mark::after{content:"";position:absolute;inset:4px;border:1px solid var(--ws-accent);opacity:.55}
+.ws-en{font-family:var(--ws-mono);font-size:11px;font-weight:400;letter-spacing:1px;color:var(--ws-muted);margin-left:2px}
+.ws-nav{display:flex;gap:30px;align-items:center;min-width:0}
+.ws-nav a{font-size:13.5px;color:var(--ws-muted);position:relative;padding:6px 0;white-space:nowrap;transition:color .18s}
+.ws-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--ws-accent);transition:right .22s}
+.ws-nav a:hover{color:var(--ws-ink)}
+.ws-nav a:hover::after{right:0}
+.ws-actions{margin-left:auto;display:flex;align-items:center;gap:6px;flex:none}
+.ws-btn{
+  width:34px;height:34px;display:grid;place-items:center;
+  color:var(--ws-muted);font-size:15px;line-height:1;
+  background:transparent!important;border:1px solid var(--ws-line);
+  font-family:var(--ws-sans);cursor:pointer;transition:color .18s,background .18s;
+}
+.ws-btn:hover{color:var(--ws-ink);background:var(--ws-line-soft)!important;border-color:var(--ws-ink)}
+
+/* ---------- 8. 注入的统一页脚 ---------- */
+.ws-footer{margin-top:90px;border-top:1px solid var(--ws-ink);padding:54px 0 34px}
+.ws-wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+.ws-footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-end}
+.ws-word{font-size:clamp(30px,5vw,64px);font-weight:800;letter-spacing:-.05em;line-height:1}
+.ws-word span{color:var(--ws-accent)}
+.ws-footer-links{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;color:var(--ws-muted);padding-bottom:6px}
+.ws-footer-links a{transition:color .16s}
+.ws-footer-links a:hover{color:var(--ws-accent)}
+.ws-meta{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:46px;padding-top:18px;border-top:1px solid var(--ws-line);font-family:var(--ws-mono);font-size:10.5px;letter-spacing:.6px;color:var(--ws-muted);text-transform:uppercase}
+.ws-meta a:hover{color:var(--ws-accent)}
+.ws-to-top{position:fixed;right:26px;bottom:26px;width:42px;height:42px;border:1px solid var(--ws-line);background:var(--ws-surface);color:var(--ws-ink);font-size:17px;opacity:0;pointer-events:none;transition:opacity .22s,border-color .18s,color .18s;z-index:60}
+.ws-to-top.show{opacity:1;pointer-events:auto}
+.ws-to-top:hover{border-color:var(--ws-accent);color:var(--ws-accent)}
+
+/* ---------- 9. 响应式 ---------- */
+@media (max-width:860px){
+  body .topnav .inner{height:auto;padding:12px 20px 10px;gap:16px;flex-wrap:wrap;row-gap:2px}
+  body .topnav .navtabs{order:3;width:100%;flex:none;gap:22px;overflow-x:auto}
+  body .topnav .logo{font-size:15px}
+  body .wrap,body .page-wrap{padding-left:20px;padding-right:20px}
+  body .page-hero{padding:32px 0 26px}
+  body .page-hero .acts{margin-left:0}
+  .ws-inner{padding:12px 20px 10px;height:auto;gap:16px;flex-wrap:wrap}
+  .ws-nav{order:3;width:100%;gap:22px;overflow-x:auto}
+  .ws-wrap{padding:0 20px}
+  .ws-footer{margin-top:60px;padding:40px 0 28px}
+  .ws-meta{margin-top:30px}
+}
