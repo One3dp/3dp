@@ -45,8 +45,8 @@
             '<span class="ws-en">ONE3DP</span>' +
           '</a>' +
           '<nav class="ws-nav" aria-label="主导航">' +
-            '<a href="' + base + 'index.html#workspace">个人工作台</a>' +
-            '<a href="' + base + 'daily-hotspots.html">每日热点</a>' +
+            '<a href="' + base + 'index.html#workspace">工作台</a>' +
+            '<a href="' + base + 'daily-hotspots.html">热点资讯</a>' +
             '<a href="' + base + 'history.html">历史归档</a>' +
             '<a href="' + base + 'price-calculator.html">报价计算器</a>' +
             '<a href="' + base + 'filament-guide.html">耗材资料</a>' +
