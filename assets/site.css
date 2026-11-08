@@ -191,14 +191,28 @@ body header.hero .stat{
 }
 body header.hero .stat span{opacity:.7}
 /* hero 内按钮（如「返回工作站」）：墨黑底必须用浅色字，否则黑底黑字不可见 */
-body header.hero .pbtn{
+body header.hero .pbtn,body .wrap > header .btns .pbtn{
   color:#f6f6f3!important;
   border-color:rgba(246,246,243,.42)!important;
   background:transparent!important;
 }
-body header.hero .pbtn:hover{
+body header.hero .pbtn:hover,body .wrap > header .btns .pbtn:hover{
   background:#f6f6f3!important;color:#141414!important;border-color:#f6f6f3!important;
 }
+/* 国际报告页由旧模板生成，封面是裸 <header>：统一为墨黑，清掉蓝紫渐变 */
+body .wrap > header:not(.hero){
+  background:#141414!important;color:#f6f6f3!important;
+  border-radius:0!important;box-shadow:none!important;
+  padding:38px 34px!important;margin-bottom:22px;border-bottom:none;
+}
+body .wrap > header:not(.hero) h1{font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-.045em}
+body .wrap > header:not(.hero) .sub{opacity:.62;font-size:13.5px}
+body .wrap > header:not(.hero) .stat{
+  background:transparent!important;
+  border:1px solid rgba(246,246,243,.35)!important;
+  color:inherit!important;
+}
+body .wrap > header:not(.hero) .stat span{opacity:.7}
 body h2.sec{
   font-size:25px;font-weight:700;letter-spacing:-.035em;
   border-bottom:1px solid var(--ws-ink);padding-bottom:12px;margin-top:42px;
