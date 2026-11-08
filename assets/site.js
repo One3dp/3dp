@@ -76,7 +76,7 @@
               '<a href="https://space.bilibili.com/1384210206" target="_blank" rel="noopener">B 站</a>' +
               '<a href="https://www.douyin.com/user/self" target="_blank" rel="noopener">抖音</a>' +
               '<a href="https://www.xiaohongshu.com/user/profile/5c9d41ed000000001102b987" target="_blank" rel="noopener">小红书</a>' +
-              '<a href="https://github.com/OneWord3DP/3dprint-workstation" target="_blank" rel="noopener">GitHub</a>' +
+              '<a href="https://github.com/One3dp/3dp" target="_blank" rel="noopener">GitHub</a>' +
               '<a href="' + base + 'history.html">历史归档</a>' +
             '</div>' +
           '</div>' +
