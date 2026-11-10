@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H3C 主题 · 2026-11-10 · 3D打印工作台</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141414'/%3E%3Cpath d='M16 6l9 5v10l-9 5-9-5V11z' fill='none' stroke='%23e64b23' stroke-width='2'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#f6f6f3;--surface:#fff;--ink:#141414;--muted:#8b8b84;--line:#deded7;--line-soft:#eaeae4;--accent:#e64b23;--accent-soft:#fceee9;--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+body[data-theme="dark"]{--bg:#0e0e0d;--surface:#161615;--ink:#f2f2ed;--muted:#8d8d86;--line:#2c2c29;--line-soft:#232321;--accent:#ff6a3d;--accent-soft:#2a1811}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.topnav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--line)}
+.topnav .inner{display:flex;align-items:center;gap:20px;height:72px;max-width:1280px;margin:0 auto;padding:0 40px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:700;font-size:16px;white-space:nowrap}
+.logo .mark{width:22px;height:22px;border:2px solid var(--accent);display:inline-block;position:relative}
+.logo .mark::after{content:"";position:absolute;inset:4px;border:1px solid var(--accent);opacity:.55}
+.navtabs{display:flex;gap:30px;overflow-x:auto;scrollbar-width:none}
+.navtabs::-webkit-scrollbar{display:none}
+.navtabs a{font-size:13.5px;color:var(--muted);padding:6px 0;white-space:nowrap;position:relative}
+.navtabs a:hover,.navtabs a.active{color:var(--ink);font-weight:600}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:6px}
+.tbtn{width:26px;height:26px;border:1px solid var(--line);background:transparent;cursor:pointer;color:var(--muted);font-size:12px;line-height:1}
+.tbtn.on{color:var(--accent);border-color:var(--accent)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px 40px}
+.page-hero{border-bottom:1px solid var(--ink);padding:46px 0 30px;margin-bottom:34px;display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.page-hero h1{font-size:clamp(34px,5vw,58px);font-weight:800;letter-spacing:-.05em;line-height:1.05}
+.page-hero .sub{font-size:13.5px;color:var(--muted);margin-top:14px;line-height:1.8;max-width:820px}
+.page-hero .acts{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.pbtn{border:1px solid var(--line);color:var(--ink);font-size:12.5px;font-weight:600;padding:9px 15px;transition:.16s;white-space:nowrap}
+.pbtn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.stats{display:flex;gap:0;margin:0 0 30px;border:1px solid var(--line);background:var(--surface);flex-wrap:wrap}
+.stats div{flex:1;min-width:150px;padding:16px 20px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:none}
+.stats b{display:block;font-size:26px;font-weight:800;letter-spacing:-.03em;font-family:var(--mono)}
+.stats span{font-size:11.5px;color:var(--muted)}
+h2.sec{font-size:24px;font-weight:700;letter-spacing:-.035em;border-bottom:1px solid var(--ink);padding-bottom:12px;margin:42px 0 20px;display:flex;align-items:center;gap:12px}
+h2.sec .no{background:var(--accent);color:#fff;width:26px;height:26px;font-size:12px;font-family:var(--mono);display:inline-flex;align-items:center;justify-content:center;flex:none}
+h2.sec .note{margin-left:auto;font-size:12px;font-weight:400;color:var(--muted);font-family:var(--mono);letter-spacing:0}
+.lead{border-left:2px solid var(--accent);padding:2px 0 2px 18px;font-size:14.5px;color:var(--ink);margin-bottom:26px;line-height:1.9}
+.lead b{font-weight:700}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);background:var(--surface);margin-bottom:34px}
+.grid3 > div{padding:20px 22px;border-right:1px solid var(--line)}
+.grid3 > div:last-child{border-right:none}
+.grid3 h3{font-size:14px;font-weight:700;margin-bottom:6px}
+.grid3 p{font-size:12.5px;color:var(--muted);line-height:1.75}
+.grid3 .k{font-family:var(--mono);font-size:10.5px;color:var(--accent);letter-spacing:.5px;display:block;margin-bottom:8px}
+.ptable{width:100%;border:1px solid var(--line);background:var(--surface);border-collapse:collapse;margin-bottom:14px;font-size:13.5px;line-height:1.75}
+.ptable th{text-align:left;font-size:11.5px;color:var(--muted);font-weight:600;padding:12px 16px;border-bottom:1px solid var(--ink);white-space:nowrap}
+.ptable td{padding:12px 16px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+.ptable tr:last-child td{border-bottom:none}
+.ptable td.n{font-family:var(--mono);color:var(--muted);white-space:nowrap}
+.ptable td.item{font-weight:700;white-space:nowrap}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;color:var(--accent);border:1px solid var(--accent);padding:1px 6px;margin-left:6px;vertical-align:1px}
+.src{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.trend{background:var(--surface);border:1px solid var(--line);padding:24px 26px;margin-bottom:14px;display:grid;grid-template-columns:56px 1fr;gap:20px}
+.trend .idx{font-family:var(--mono);font-size:26px;font-weight:700;color:var(--line);letter-spacing:-.04em;line-height:1}
+.trend h3{font-size:19.5px;font-weight:700;letter-spacing:-.03em;line-height:1.45}
+.trend .meta{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--muted);margin:9px 0 12px;letter-spacing:.2px}
+.trend .meta .d{color:var(--accent)}
+.trend p{font-size:14px;line-height:1.9}
+.trend .why{border-top:1px dashed var(--line);margin-top:14px;padding-top:12px;font-size:13.5px;line-height:1.85}
+.trend .why b{color:var(--accent)}
+.note-box{border:1px solid var(--line);border-left:2px solid var(--accent);background:var(--surface);padding:18px 22px;font-size:13px;color:var(--muted);line-height:1.9;margin-top:26px}
+.log{border:1px solid var(--line);background:var(--surface)}
+.log div{display:flex;gap:16px;padding:13px 20px;border-bottom:1px solid var(--line-soft);font-size:13.5px;align-items:baseline}
+.log div:last-child{border-bottom:none}
+.log .dt{font-family:var(--mono);font-size:11px;color:var(--muted);flex:none;width:110px}
+footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.credit{text-align:center;color:var(--muted);font-size:11.5px;margin:18px auto 8px;line-height:1.9;font-family:var(--mono)}
+@media(max-width:900px){
+  .grid3{grid-template-columns:1fr}
+  .grid3 > div{border-right:none;border-bottom:1px solid var(--line)}
+  .trend{grid-template-columns:1fr;gap:8px}
+  .trend .idx{font-size:16px}
+  .topnav .inner{height:auto;flex-wrap:wrap;row-gap:4px;padding:12px 16px 8px}
+  .navtabs{order:3;width:100%;flex:none}
+  .wrap{padding:0 16px 30px}
+  .page-hero{padding:28px 0 22px}
+  .page-hero .acts{margin-left:0}
+  .ptable{display:block;overflow-x:auto}
+}
+</style>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-theme="light">
+<nav class="topnav">
+  <div class="inner">
+    <a class="logo" href="index.html"><span class="mark">⬡</span>一言智造</a>
+    <div class="navtabs">
+      <a href="index.html#workspace">首页总览</a>
+      <a href="weekly-trends.html">每周趋势</a>
+      <a href="h3c.html" class="active">H3C 主题</a>
+      <a href="index.html#tools">打印工具</a>
+      <a href="index.html#resources">资源中心</a>
+      <a href="index.html#community">社区交流</a>
+    </div>
+    <div class="nav-right">
+      <button class="tbtn t-light on" data-t="light" title="浅色模式" aria-label="浅色模式">☀</button>
+      <button class="tbtn t-dark" data-t="dark" title="深色模式" aria-label="深色模式">☾</button>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="page-hero">
+    <div>
+      <h1>H3C 主题</h1>
+      <div class="sub">拓竹第三代旗舰 · 2026-11-03 发布 · 持续更新 · 北京时间 UTC+8<br>优缺点持续收集：用户实测 + 海外 / 国内评测 + 官方资料，来源分开标注，未核实的不写成定论。当前版本 v1.1 · 2026-11-10。</div>
+    </div>
+    <div class="acts">
+      <a class="pbtn" href="weekly-trends.html">每周趋势 →</a>
+      <a class="pbtn" href="intl-report.html">国际每周热点 →</a>
+      <a class="pbtn" href="index.html">← 返回工作站</a>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div><b>14</b><span>优点（用户实测 7 + 网络 7）</span></div>
+    <div><b>21</b><span>不足（v1.0 14 条 + v1.1 新增 7 条）</span></div>
+    <div><b>6 秒</b><span>换头换料全程（切换本身 3.4 秒）</span></div>
+    <div><b>13,999 元起</b><span>国内国补后 · 美国 $2,499</span></div>
+  </div>
+
+  <div class="lead">一句话结论：<b>总体推荐，但只推荐给高频多色 / 多材料 / 软料用户。</b>换头快、废料少、75A 软料是真突破；高、贵、配件另购、9 槽锁定配对是真代价。只偶尔打多色、只打单色，H2D / H2C 更划算。</div>
+
+  <div class="grid3">
+    <div><span class="k">MAIN LINE 01</span><h3>换头，不是换料</h3><p>9 个 PrintTool 各带独立料路、加热、切刀，换头约 6 秒，CNC Kitchen 实测 6–7 秒，H2C 约 40 秒。单次换料约 38–50mg，仍需擦料塔。</p></div>
+    <div><span class="k">MAIN LINE 02</span><h3>软料是杀手级特性</h3><p>8 号槽原生 2.85mm 工具，75A TPU 可打，CNC Kitchen 实测 60A、10mm³/s 稳定。软硬混打一件完成，是 H3C 相对竞品最硬的差异。</p></div>
+    <div><span class="k">MAIN LINE 03</span><h3>散热：大胆，也取舍</h3><p>机头风扇比 H2C 小，靠两侧大辅扇远程直吹补偿；9 个头挂架上主动预热，靠挂架风扇防热蠕变。突破与风险在同一处，见第 04 节。</p></div>
+  </div>
+
+  <h2 class="sec"><span class="no">01</span>关键实测数<span class="note">官方标称 / 实测对照</span></h2>
+  <table class="ptable">
+    <tr><th>项目</th><th>数值</th><th>来源</th></tr>
+    <tr><td class="item">换头换料</td><td>官方 6 秒全程、3.4 秒切换；CNC Kitchen 实测 6–7 秒</td><td class="src">官方 / CNC Kitchen</td></tr>
+    <tr><td class="item">单次废料</td><td>官方 38mg；实测约 50mg / 次，4000+ 次换色约 200g 塔</td><td class="src">官方 / CNC Kitchen</td></tr>
+    <tr><td class="item">成型 / 温度</td><td>330×320×325mm；喷嘴 350°C、热床 120°C、腔温 65°C</td><td class="src">官 spec</td></tr>
+    <tr><td class="item">速度</td><td>标称 1400mm/s、25000mm/s²；实测只比 H2C / H2D 快约 10%</td><td class="src">官 spec / CNC Kitchen</td></tr>
+    <tr><td class="item">AMS 3H</td><td>9 槽密封；6、8 号槽可边打边烘，最高 85°C；其余 7 槽不加热</td><td class="src">官方</td></tr>
+    <tr><td class="item">评分</td><td>TechRadar 5/5、How-To Geek 9/10、Aurora Tech 89.5/100；Tom's Hardware 未裁定（SimplyPrint 4.5/5，CommentChoisir 记 4/5）</td><td class="src">海外评测汇总</td></tr>
+  </table>
+
+  <h2 class="sec"><span class="no">02</span>优点<span class="note">14 条 · 用户实测与网络分开标注</span></h2>
+  <table class="ptable">
+    <tr><th>#</th><th>项目</th><th>具体表现</th><th>来源</th></tr>
+    <tr><td class="n">01</td><td class="item">SwapTek 九工具切换</td><td>9 个 PrintTool 各带独立料路、加热、切刀，换头约 6 秒，切换本身 3.4 秒；CNC Kitchen 实测 6–7 秒，H2C 约 40 秒</td><td class="src">海外评测</td></tr>
+    <tr><td class="n">02</td><td class="item">废料大幅减少</td><td>单次换料约 38–50mg，仍需擦料塔，但远低于单喷头多色方案；4000+ 次换色约 200g 塔</td><td class="src">海外评测</td></tr>
+    <tr><td class="n">03</td><td class="item">2.85mm 75A 软料</td><td>8 号槽原生 2.85mm 工具，75A TPU 可打，CNC Kitchen 实测 60A、10mm³/s 稳定</td><td class="src">海外评测</td></tr>
+    <tr><td class="n">04</td><td class="item">混喷嘴、混材料同打</td><td>0.2–0.8mm 可混用，如表盘 0.2、壳体 0.4、TPU 带 2.85mm，一件完成</td><td class="src">海外评测</td></tr>
+    <tr><td class="n">05</td><td class="item">AMS 3H 九料位</td><td>9 槽密封，6、8 号槽可边打边烘，最高 85°C</td><td class="src">官方 / 海外评测</td></tr>
+    <tr><td class="n">06</td><td class="item">打印核心没缩水</td><td>喷嘴 350°C、热床 120°C、腔温 65°C、1400mm/s，成型 330×320×325mm</td><td class="src">官 spec</td></tr>
+    <tr><td class="n">07</td><td class="item">双 1080p 摄像头 + 过滤</td><td>两个 1080p 摄像头、HEPA / 活性炭过滤在内</td><td class="src">How-To Geek</td></tr>
+    <tr><td class="n">08</td><td class="item">五口插座</td><td>用户观测点</td><td class="src">用户实测</td></tr>
+    <tr><td class="n">09</td><td class="item">摄像头遮光罩和保护罩</td><td>用户观测点，细节保护到位</td><td class="src">用户实测</td></tr>
+    <tr><td class="n">10</td><td class="item">切刀顶针</td><td>用户观测点</td><td class="src">用户实测</td></tr>
+    <tr><td class="n">11</td><td class="item">微型编码板</td><td>用户观测点</td><td class="src">用户实测</td></tr>
+    <tr><td class="n">12</td><td class="item">人走进亮灯？</td><td>用户观测存疑，待核实是否为人体感应自动亮灯，不得写成定论</td><td class="src">用户实测（待确认）</td></tr>
+    <tr><td class="n">13</td><td class="item">XY 空心光轴</td><td>用户观测点，轻量化运动结构</td><td class="src">用户实测</td></tr>
+    <tr><td class="n">14</td><td class="item">福马轮软脚垫</td><td>用户观测点，减震 / 调平脚垫</td><td class="src">用户实测</td></tr>
+  </table>
+
+  <h2 class="sec"><span class="no">03</span>不足<span class="note">21 条 · v1.1 新增 7 条标「新增」</span></h2>
+  <table class="ptable">
+    <tr><th>#</th><th>项目</th><th>具体表现</th><th>来源</th><th>改进可能</th></tr>
+    <tr><td class="n">01</td><td class="item">TPU RFID 不能自动更新</td><td>有时需手动点重读</td><td class="src">用户实测</td><td>固件升级</td></tr>
+    <tr><td class="n">02</td><td class="item">工程耗材受限</td><td>官方说明：含碳 / 玻纤料过 AMS 3H 料斗阻力大，建议走外部料盘；PPA-CF 易断，同样建议外置；高温料打印前需先卸掉 PLA / PETG，否则会在 PTFE 管里软化</td><td class="src">用户实测 + 官方 / 论坛</td><td>设计硬伤</td></tr>
+    <tr><td class="n">03</td><td class="item">硬耗材受限</td><td>同上，硬 / 脆 / 增强料在 AMS 料路里易卡、易断</td><td class="src">用户实测 + 官方</td><td>设计硬伤</td></tr>
+    <tr><td class="n">04</td><td class="item">调平仍靠点击，耗时较长</td><td>首次校准约 1 小时；9 个头需各自校准 Z 偏移；高速扫描准确性待验证</td><td class="src">用户实测 + 海外评测</td><td>下代改善</td></tr>
+    <tr><td class="n">05</td><td class="item">AMS 顶部无灯光</td><td>用户观测点</td><td class="src">用户实测</td><td>后期加装</td></tr>
+    <tr><td class="n">06</td><td class="item">整机太高，柜子不适配</td><td>AMS 开盖近 50 英寸，约 1 米高、36.28kg，需梯子或 Bambu Station 才好换料</td><td class="src">用户实测 + 海外评测</td><td>第三方：柜子降低 10cm</td></tr>
+    <tr><td class="n">07</td><td class="item">喷嘴基座价格高</td><td>标配全 0.4mm，打 9 色 1.75mm 需另买 1 个 1.75mm 工具，约 $99.99；1.75 / 2.85mm 底座、热端不互换</td><td class="src">用户实测 + 官方 FAQ</td><td>第三方</td></tr>
+    <tr><td class="n">08</td><td class="item">无自动回卷</td><td>换卷前必须在屏上手动退料，约 2 米料要手动收回</td><td class="src">海外评测</td><td>固件 / 下代</td></tr>
+    <tr><td class="n">09</td><td class="item">仅 2/9 槽可烘干</td><td>6、8 号共用一个烘干腔，PLA 与 PA / PC 混烘要迁就低温料，烘高温料前需卸掉低温料</td><td class="src">海外评测 / 论坛</td><td>下代</td></tr>
+    <tr><td class="n">10</td><td class="item">擦料塔仍在</td><td>约 50mg / 次，复杂多色件仍有可观废料</td><td class="src">海外评测</td><td>切片优化</td></tr>
+    <tr><td class="n">11</td><td class="item">一料一头，无自动续料</td><td>同种料用完不能自动切到另一槽同种料续打</td><td class="src">国内汇总</td><td>下代</td></tr>
+    <tr><td class="n">12</td><td class="item">软料旁路进料麻烦</td><td>95A 以下 TPU 需走旁路，拆侧板、盲穿管线，高处看不见接口</td><td class="src">海外实测</td><td>下代</td></tr>
+    <tr><td class="n">13</td><td class="item">外围减配</td><td>屏幕 5 英寸 854×480、无以太网 / kill switch / 802.1X、无激光、BirdsEye 与 Vision Encoder 另购</td><td class="src">官 spec</td><td>另购</td></tr>
+    <tr><td class="n">14</td><td class="item">价格与配件成本高</td><td>$2,499 / 国内 13999 元起，0.2 / 0.6 / 0.8 热端、CraftTool 等均另购；只偶尔打多色很难摊平</td><td class="src">海外评测</td><td>—</td></tr>
+    <tr><td class="n">15</td><td class="item">喷嘴散热：机头风扇变小，靠两侧远程大辅扇直吹补偿<span class="tag">新增</span></td><td>官方四重冷却：机头 CFD 部件风扇 + 左右辅助风扇 + 挂架风扇 + 腔体风扇；CNC Kitchen：机头风扇比 H2C 小，靠两个大侧扇补偿。远程直吹风程长、易受模型遮挡，精细悬垂的指向性不如贴近喷嘴的风扇</td><td class="src">用户观测 + 官方 / CNC Kitchen</td><td>设计取舍</td></tr>
+    <tr><td class="n">16</td><td class="item">停放工具降温，熔料降解<span class="tag">新增</span></td><td>工具停放后慢慢冷却，熔区里的料会降解，取回时需先建压，仍需擦料塔约 50mg / 次；INDX 约 10mg / 次</td><td class="src">CNC Kitchen</td><td>切片 / 固件优化</td></tr>
+    <tr><td class="n">17</td><td class="item">换喷嘴需拆 3 颗螺丝<span class="tag">新增</span></td><td>相对 H2D 免工具 &lt;30 秒换嘴是倒退；想多配几个 0.2mm 头还得配对应颜色料卷</td><td class="src">论坛 / 海外评测</td><td>下代</td></tr>
+    <tr><td class="n">18</td><td class="item">9 槽锁定配对易占满<span class="tag">新增</span></td><td>同种料换不同喷嘴尺寸也会占槽，9 工具 / 9 槽很快不够用</td><td class="src">论坛</td><td>下代 / P3C</td></tr>
+    <tr><td class="n">19</td><td class="item">低温料与高温料不能共存<span class="tag">新增</span></td><td>无全回抽，ABS / ASA + PLA / PETG 同时装机时，腔温加热会软化低温料；官方警告只写“低温残料可能堵头”，未明确提醒卸掉 PLA</td><td class="src">论坛 / 官方</td><td>使用注意</td></tr>
+    <tr><td class="n">20</td><td class="item">H2C 打印板不兼容<span class="tag">新增</span></td><td>H2C 板 Y 长 5mm，H3C 会报错，需裁切</td><td class="src">CNC Kitchen</td><td>—</td></tr>
+    <tr><td class="n">21</td><td class="item">实测速度只比 H2C / H2D 快约 10%<span class="tag">新增</span></td><td>标称 1400mm/s、25000mm/s²，实际打印只快约 10%；高速下仍有轻微 artifacts</td><td class="src">CNC Kitchen</td><td>固件 / 切片</td></tr>
+  </table>
+
+  <h2 class="sec"><span class="no">04</span>喷嘴散热深挖<span class="note">用户新增观测 · 官方四重冷却</span></h2>
+  <div class="trend">
+    <div class="idx">01</div>
+    <div>
+      <h3>官方怎么设计的：四重冷却，贯穿式气流</h3>
+      <div class="meta"><span class="d">官方口径</span><span>机头 + 两侧 + 挂架 + 腔体</span></div>
+      <p>机头 CFD 部件冷却风扇、左右辅助部件冷却风扇配合，为悬垂和桥接精准降温；腔体散热风扇持续吸入环境冷空气，打印 PLA / PETG 时维持低腔温，防止堵头；打印头挂架散热风扇在预加热时防止热量向上传导，避免耗材软化。</p>
+      <div class="why"><b>大胆处：</b>为给 9 工具换头减重 40%，机头风扇做小，冷却主力移到腔体两侧的远程大辅扇直吹；9 个头在挂架上主动预热，靠挂架风扇控温。不是贴身吹，是远程吹。</div>
+    </div>
+  </div>
+  <div class="trend">
+    <div class="idx">02</div>
+    <div>
+      <h3>风险在哪：指向性、停放降解、热端几何</h3>
+      <div class="meta"><span class="d">CNC Kitchen / Hackster</span><span>待长期验证</span></div>
+      <p>CNC Kitchen：机头风扇比 H2C 小，靠两个大侧扇补偿；工具停放后慢慢冷却，熔区里的料会降解，取回时需先建压，这就是擦料塔还在的原因。Hackster：打印质量与 H2C 相当但不及 H2S / H2D，疑与全硬化钢喷嘴 + 非常规热端几何有关，TPU 悬垂 / 欠挤出偶发。</p>
+      <div class="why"><b>定性：</b>是突破，也是取舍——不是单纯的优点或缺点，两边都写。远程风的指向性与均匀性、TPU 悬垂表现，需更多实测才能定论。</div>
+    </div>
+  </div>
+
+  <h2 class="sec"><span class="no">05</span>买不买<span class="note">按使用频率分</span></h2>
+  <div class="trend">
+    <div class="idx">→</div>
+    <div>
+      <h3>买：高频多色 / 多材料 / 软料用户</h3>
+      <div class="meta"><span class="d">18 位实测总体推荐</span><span>农场 / 手办 / 穿戴功能件</span></div>
+      <p>一件模型换料次数越多，6 秒换头和废料下降的收益越大。41 码鞋不到 3 天（H2D 要 5–6 天）、5 色小狐狸 37 小时 → 6 小时，都是换色密集场景的实测。</p>
+      <div class="why"><b>不买：</b>只打单色小件、偶尔玩多色，9 个头的增量很难摊平 13,999 元；只打两种材料，H2D 更便宜；想要激光、想要以太网，H3C 没有。</div>
+    </div>
+  </div>
+
+  <h2 class="sec"><span class="no">06</span>更新日志<span class="note">持续更新 · 每次只改内容，不动皮肤</span></h2>
+  <div class="log">
+    <div><span class="dt">2026-11-10 · v1.1</span><span>新增喷嘴散热深挖 + 不足 15–21 条（换嘴拆螺丝、9 槽占满、低温高温不能共存、H2C 板不兼容、实测只快约 10% 等）。</span></div>
+    <div><span class="dt">2026-11-10 · v1.0</span><span>首版：优点 14 条、不足 14 条，用户观测 + 网络收集整理成表。</span></div>
+  </div>
+
+  <div class="note-box">
+    <b>阅读说明：</b>本页为「H3C 主题」持续更新页，不是评测定稿。用户实测、海外评测、官方资料来源分开标注；「人走进亮灯？」「高速扫描准确性」等未核实项保留问号，不得写成定论。Tom's Hardware 评分未裁定：SimplyPrint 记 4.5/5，CommentChoisir 记 4/5，原文仍读不到。<br>
+    更新方式：把新观测 / 新评测发给我，我先核对来源，再追加到本页与更新日志里，版本号 +0.1；固件修掉的问题会移到「已修复」一栏，不直接删。
+  </div>
+
+  <footer>
+    <span>H3C 主题 · v1.1 · 2026-11-10</span>
+    <span>作者：一言智造 One3DP · 数据来自用户实测与公开报道</span>
+  </footer>
+  <div class="credit">持续更新 · 北京时间 UTC+8 · 有新观测或新评测就补</div>
+</div>
+
+<script>
+(function(){
+  var KEY='one3dp_theme';
+  function apply(t){document.body.dataset.theme=t;document.querySelectorAll('.tbtn').forEach(function(b){b.classList.toggle('on',b.dataset.t===t);});try{localStorage.setItem(KEY,t);}catch(e){}}
+  document.querySelectorAll('.tbtn').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.t);});});
+  try{var v=localStorage.getItem(KEY);if(v)apply(v);}catch(e){}
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>
