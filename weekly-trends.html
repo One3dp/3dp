@@ -30,46 +30,46 @@ a{color:inherit;text-decoration:none}
 .page-hero .acts{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
 .pbtn{border:1px solid var(--line);color:var(--ink);font-size:12.5px;font-weight:600;padding:9px 15px;transition:.16s;white-space:nowrap}
 .pbtn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.stats{display:flex;gap:0;margin:0 0 30px;border:1px solid var(--line);background:var(--surface);flex-wrap:wrap}
-.stats div{flex:1;min-width:150px;padding:16px 20px;border-right:1px solid var(--line)}
-.stats div:last-child{border-right:none}
-.stats b{display:block;font-size:26px;font-weight:800;letter-spacing:-.03em;font-family:var(--mono)}
-.stats span{font-size:11.5px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:0 0 28px}
+.stats div{background:var(--surface);border:1px solid var(--line);padding:16px 18px}
+.stats b{display:block;font-size:24px;font-weight:800;letter-spacing:-.03em;font-family:var(--mono);color:var(--accent)}
+.stats span{font-size:11.5px;color:var(--muted);line-height:1.55;display:block;margin-top:6px}
 h2.sec{font-size:24px;font-weight:700;letter-spacing:-.035em;border-bottom:1px solid var(--ink);padding-bottom:12px;margin:42px 0 20px;display:flex;align-items:center;gap:12px}
 h2.sec .no{background:var(--accent);color:#fff;width:26px;height:26px;font-size:12px;font-family:var(--mono);display:inline-flex;align-items:center;justify-content:center;flex:none}
 h2.sec .note{margin-left:auto;font-size:12px;font-weight:400;color:var(--muted);font-family:var(--mono);letter-spacing:0}
-.lead{border-left:2px solid var(--accent);padding:2px 0 2px 18px;font-size:14.5px;color:var(--ink);margin-bottom:26px;line-height:1.9}
+.lead{background:var(--surface);border:1px solid var(--line);border-left:2px solid var(--accent);padding:16px 20px;font-size:14px;color:var(--ink);margin-bottom:28px;line-height:1.9}
 .lead b{font-weight:700}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);background:var(--surface);margin-bottom:34px}
-.grid3 > div{padding:20px 22px;border-right:1px solid var(--line)}
-.grid3 > div:last-child{border-right:none}
-.grid3 h3{font-size:14px;font-weight:700;margin-bottom:6px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:34px}
+.grid3 > div{background:var(--surface);border:1px solid var(--line);padding:18px 20px;transition:border-color .16s}
+.grid3 > div:hover{border-color:var(--accent)}
+.grid3 h3{font-size:15px;font-weight:700;margin-bottom:6px}
 .grid3 p{font-size:12.5px;color:var(--muted);line-height:1.75}
 .grid3 .k{font-family:var(--mono);font-size:10.5px;color:var(--accent);letter-spacing:.5px;display:block;margin-bottom:8px}
-.trend{background:var(--surface);border:1px solid var(--line);padding:24px 26px;margin-bottom:14px;display:grid;grid-template-columns:56px 1fr;gap:20px}
-.trend .idx{font-family:var(--mono);font-size:26px;font-weight:700;color:var(--line);letter-spacing:-.04em;line-height:1}
-.trend h3{font-size:19.5px;font-weight:700;letter-spacing:-.03em;line-height:1.45}
-.trend .meta{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--muted);margin:9px 0 12px;letter-spacing:.2px}
-.trend .meta .d{color:var(--accent)}
-.trend p{font-size:14px;line-height:1.9}
-.trend .why{border-top:1px dashed var(--line);margin-top:14px;padding-top:12px;font-size:13.5px;line-height:1.85;color:var(--ink)}
+.trends{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:30px}
+.trend{background:var(--surface);border:1px solid var(--line);padding:18px 20px;margin:0;display:grid;grid-template-columns:1fr;gap:8px;transition:border-color .16s}
+.trend:hover{border-color:var(--accent)!important}
+.trend .idx{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-soft);border:1px solid var(--line);padding:2px 9px;justify-self:start;letter-spacing:.5px}
+.trend h3{font-size:16px;font-weight:700;letter-spacing:-.03em;line-height:1.5}
+.trend .meta{display:flex;gap:7px;flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;color:var(--muted);margin:2px 0 4px;letter-spacing:.2px}
+.trend .meta span{background:var(--line-soft);border:1px solid var(--line);padding:2px 8px}
+.trend .meta .d{color:var(--accent);background:var(--accent-soft)}
+.trend p{font-size:13.3px;line-height:1.85}
+.trend .why{border-top:1px solid var(--line-soft);margin-top:2px;padding-top:10px;font-size:12.8px;line-height:1.8;color:var(--ink)}
 .trend .why b{color:var(--accent)}
-.trend .src{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px;word-break:break-all}
+.trend .src{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:2px;padding-top:8px;border-top:1px dashed var(--line-soft);word-break:break-all}
 .trend .src a:hover{color:var(--accent);text-decoration:underline}
-.radar{border:1px solid var(--line);background:var(--surface)}
-.radar a{display:flex;gap:16px;padding:13px 20px;border-bottom:1px solid var(--line-soft);font-size:13.5px;align-items:baseline}
-.radar a:last-child{border-bottom:none}
-.radar a:hover{background:var(--accent-soft)}
-.radar .dt{font-family:var(--mono);font-size:11px;color:var(--muted);flex:none;width:56px}
-.radar .tx{color:var(--ink)}
+.radar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.radar a{display:flex;gap:12px;padding:14px 16px;border:1px solid var(--line);background:var(--surface);font-size:12.8px;align-items:baseline;transition:border-color .16s}
+.radar a:hover{border-color:var(--accent);background:var(--accent-soft)}
+.radar .dt{font-family:var(--mono);font-size:11px;color:var(--accent);background:var(--accent-soft);border:1px solid var(--line);padding:2px 7px;flex:none}
+.radar .tx{color:var(--ink);line-height:1.75}
 .note-box{border:1px solid var(--line);border-left:2px solid var(--accent);background:var(--surface);padding:18px 22px;font-size:13px;color:var(--muted);line-height:1.9;margin-top:26px}
 footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .credit{text-align:center;color:var(--muted);font-size:11.5px;margin:18px auto 8px;line-height:1.9;font-family:var(--mono)}
 @media(max-width:900px){
-  .grid3{grid-template-columns:1fr}
-  .grid3 > div{border-right:none;border-bottom:1px solid var(--line)}
+  .grid3,.trends,.radar{grid-template-columns:1fr}
   .trend{grid-template-columns:1fr;gap:8px}
-  .trend .idx{font-size:16px}
+  .trend .idx{font-size:11px}
   .topnav .inner{height:auto;flex-wrap:wrap;row-gap:4px;padding:12px 16px 8px}
   .navtabs{order:3;width:100%;flex:none}
   .wrap{padding:0 16px 30px}
@@ -121,14 +121,15 @@ footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-
   <div class="lead">本周一句话：<b>Formnext 一周把「从叙事到交付」演完了——上周的 5 亿美元融资这周变成 200 台设备订单，量产专用机与后处理专区同台亮相；展台之外，中国厂商一年卖出约 1,500 台金属机、博理拿走 5 亿元，荣耀悄悄摆出六喷头。</b></div>
 
   <div class="grid3">
-    <div><span class="k">MAIN LINE 01</span><h3>资金落地成订单</h3><p>VulcanForms 上周拿 5 亿美元融资，本周就向 EOS 订走 200 台 M4 ONYX——EOS 史上最大单笔、机队增至 235 套。「建产能」的钱一周内变成真实设备采购，美国本土金属增材量产底座正在成形。</p></div>
-    <div><span class="k">MAIN LINE 02</span><h3>量产专用机取代万能机</h3><p>EOS HELIOR、Nikon MACHX（1 米高）、Stratasys H550、MJP 300 三通道——本届 Formnext 的集体方向是「一台机器打一类零件」；后处理第一次独立成区，产能瓶颈被官方承认已移到打印完的那半小时。</p></div>
-    <div><span class="k">MAIN LINE 03</span><h3>中国力量从参展到坐庄</h3><p>美光速造一年约 1,500 台金属机（自述）、倍丰红光纯铜降本 90% 押注 AI 液冷、博理拿走超 5 亿元、荣耀摆出六喷头实机——设备出货、材料工艺、融资、消费电子大厂入场，四条证据同周出现。</p></div>
+    <div class="card"><span class="k">MAIN LINE 01</span><h3>资金落地成订单</h3><p>VulcanForms 上周拿 5 亿美元融资，本周就向 EOS 订走 200 台 M4 ONYX——EOS 史上最大单笔、机队增至 235 套。「建产能」的钱一周内变成真实设备采购，美国本土金属增材量产底座正在成形。</p></div>
+    <div class="card"><span class="k">MAIN LINE 02</span><h3>量产专用机取代万能机</h3><p>EOS HELIOR、Nikon MACHX（1 米高）、Stratasys H550、MJP 300 三通道——本届 Formnext 的集体方向是「一台机器打一类零件」；后处理第一次独立成区，产能瓶颈被官方承认已移到打印完的那半小时。</p></div>
+    <div class="card"><span class="k">MAIN LINE 03</span><h3>中国力量从参展到坐庄</h3><p>美光速造一年约 1,500 台金属机（自述）、倍丰红光纯铜降本 90% 押注 AI 液冷、博理拿走超 5 亿元、荣耀摆出六喷头实机——设备出货、材料工艺、融资、消费电子大厂入场，四条证据同周出现。</p></div>
   </div>
 
   <h2 class="sec"><span class="no">01</span>本周硬件趋势<span class="note">设备 · 材料 · 产能</span></h2>
 
-  <div class="trend">
+  <div class="trends">
+  <div class="trend card">
     <div class="idx">01</div>
     <div>
       <h3>资金落地成订单：VulcanForms 一口气订走 200 台 EOS</h3>
@@ -139,7 +140,7 @@ footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-
     </div>
   </div>
 
-  <div class="trend">
+  <div class="trend card">
     <div class="idx">02</div>
     <div>
       <h3>量产专用机取代万能机：腔体按零件谱系定型，后处理第一次有了专区</h3>
@@ -150,7 +151,7 @@ footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-
     </div>
   </div>
 
-  <div class="trend">
+  <div class="trend card">
     <div class="idx">03</div>
     <div>
       <h3>荣耀摆出六喷头实机：消费电子大厂第三波入场</h3>
@@ -161,7 +162,7 @@ footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-
     </div>
   </div>
 
-  <div class="trend">
+  <div class="trend card">
     <div class="idx">04</div>
     <div>
       <h3>中国金属机把「卷」搬上国际展台：一家一年出货约 1,500 台</h3>
@@ -172,7 +173,7 @@ footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-
     </div>
   </div>
 
-  <div class="trend">
+  <div class="trend card">
     <div class="idx">05</div>
     <div>
       <h3>博理科技拿走超 5 亿元：弹性体量产路线拿到行业最大笔融资</h3>
@@ -182,10 +183,12 @@ footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-
       <div class="src">来源：商道创投网 11-21</div>
     </div>
   </div>
+  </div>
 
   <h2 class="sec"><span class="no">02</span>本周模型趋势<span class="note">平台 · 品类 · 玩法</span></h2>
 
-  <div class="trend">
+  <div class="trends">
+  <div class="trend card">
     <div class="idx">01</div>
     <div>
       <h3>众筹上限被打穿：纯塑料可动宠物套件撑起 41 万美元</h3>
@@ -196,7 +199,7 @@ footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-
     </div>
   </div>
 
-  <div class="trend">
+  <div class="trend card">
     <div class="idx">02</div>
     <div>
       <h3>参数化生成器开始众筹：「软件型创作者」有了第二条变现路</h3>
@@ -207,7 +210,7 @@ footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-
     </div>
   </div>
 
-  <div class="trend">
+  <div class="trend card">
     <div class="idx">03</div>
     <div>
       <h3>解压王座稳固，圣诞第三波转向「氛围装置」</h3>
@@ -218,7 +221,7 @@ footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-
     </div>
   </div>
 
-  <div class="trend">
+  <div class="trend card">
     <div class="idx">04</div>
     <div>
       <h3>「下载大于点赞」的电子集成件持续扩容：判断经受住第二周检验</h3>
@@ -229,7 +232,7 @@ footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-
     </div>
   </div>
 
-  <div class="trend">
+  <div class="trend card">
     <div class="idx">05</div>
     <div>
       <h3>多色军备竞赛换赛道：从「数头数」到「算废料账」</h3>
@@ -238,6 +241,7 @@ footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-
       <div class="why"><b>为什么值得关注：</b>头数军备竞赛（299 美元六头、荣耀六喷头）的同周，社区讨论重心已经转到「换色机制与废料成本」——用户成熟的速度比厂商宣传快。对模型创作者这有直接操作含义：多色版本正在成为所有爆款的标准配置（本周期刊模型几乎都标 No AMS / AMS 双版本），而「哪种多色机」的分化（单嘴快换 vs 独立喷头 vs 叠色）会把模型设计分成两派——为省料的单嘴优化拆件 vs 为效果的独立喷头整色。谁的两套版本都做，谁吃两端流量。</div>
       <div class="src">来源：什么值得买社区《1 秒换色是真，零废料存疑：多色 3D 打印这周卷出三条路》</div>
     </div>
+  </div>
   </div>
 
   <h2 class="sec"><span class="no">03</span>本周雷达<span class="note">一句话速览</span></h2>
@@ -266,7 +270,7 @@ footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-
   </div>
 
   <div class="note-box">
-    <b>阅读说明：</b>本栏目为「每周趋势」，每周日更新，只保留能改变判断的信息：硬件侧看设备架构、材料突破与产能落地；模型侧看平台政策、品类轮动与玩法变化。条目均为公开可查信息，厂商自述与众筹早鸟价口径已标注；与「国内 / 国际每周热点」的差别是——热点追求覆盖率，趋势只做筛选与判断。<br>
+    <b>阅读说明：</b>本栏目为「每周趋势」，每周六 09:00 更新，只保留能改变判断的信息：硬件侧看设备架构、材料突破与产能落地；模型侧看平台政策、品类轮动与玩法变化。条目均为公开可查信息，厂商自述与众筹早鸟价口径已标注；与「国内 / 国际每周热点」的差别是——热点追求覆盖率，趋势只做筛选与判断。<br>
     往期日报与周报（2026-09 ~ 11-15）仍保留在 <a href="history.html" style="color:var(--accent)">历史归档</a>。
   </div>
 
@@ -274,7 +278,7 @@ footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-
     <span>每周趋势 · 2026-11-22 · 第 03 期</span>
     <span>作者：一言智造 One3DP · 数据来自公开报道与页面实抓</span>
   </footer>
-  <div class="credit">覆盖窗口 2026-11-16 ~ 11-22 · 北京时间 UTC+8 · 每周日更新</div>
+  <div class="credit">覆盖窗口 2026-11-16 ~ 11-22 · 北京时间 UTC+8 · 每周六 09:00 更新</div>
 </div>
 
 <script>
