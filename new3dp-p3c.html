@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3C · New3DP · 2026-11-27 · 3D打印工作台</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141414'/%3E%3Cpath d='M16 6l9 5v10l-9 5-9-5V11z' fill='none' stroke='%23e64b23' stroke-width='2'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#f6f6f3;--surface:#fff;--ink:#141414;--muted:#8b8b84;--line:#deded7;--line-soft:#eaeae4;--accent:#e64b23;--accent-soft:#fceee9;--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+body[data-theme="dark"]{--bg:#0e0e0d;--surface:#161615;--ink:#f2f2ed;--muted:#8d8d86;--line:#2c2c29;--line-soft:#232321;--accent:#ff6a3d;--accent-soft:#2a1811}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.topnav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--line)}
+.topnav .inner{display:flex;align-items:center;gap:20px;height:72px;max-width:1280px;margin:0 auto;padding:0 40px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:700;font-size:16px;white-space:nowrap}
+.logo .mark{width:22px;height:22px;border:2px solid var(--accent);display:inline-block;position:relative}
+.logo .mark::after{content:"";position:absolute;inset:4px;border:1px solid var(--accent);opacity:.55}
+.navtabs{display:flex;gap:30px;overflow-x:auto;scrollbar-width:none}
+.navtabs::-webkit-scrollbar{display:none}
+.navtabs a{font-size:13.5px;color:var(--muted);padding:6px 0;white-space:nowrap;position:relative}
+.navtabs a:hover,.navtabs a.active{color:var(--ink);font-weight:600}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:6px}
+.tbtn{width:26px;height:26px;border:1px solid var(--line);background:transparent;cursor:pointer;color:var(--muted);font-size:12px;line-height:1}
+.tbtn.on{color:var(--accent);border-color:var(--accent)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px 40px}
+.page-hero{border-bottom:1px solid var(--ink);padding:46px 0 30px;margin-bottom:34px;display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.page-hero h1{font-size:clamp(34px,5vw,58px);font-weight:800;letter-spacing:-.05em;line-height:1.05}
+.page-hero .sub{font-size:13.5px;color:var(--muted);margin-top:14px;line-height:1.8;max-width:820px}
+.page-hero .acts{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.pbtn{border:1px solid var(--line);color:var(--ink);font-size:12.5px;font-weight:600;padding:9px 15px;transition:.16s;white-space:nowrap}
+.pbtn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.herofig{margin:0 0 30px}
+.herofig img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:14px}
+.herofig figcaption{margin-top:8px;font-size:12px;color:var(--muted)}
+.stats{display:flex;gap:0;margin:0 0 30px;border:1px solid var(--line);background:var(--surface);flex-wrap:wrap}
+.stats div{flex:1;min-width:150px;padding:16px 20px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:none}
+.stats b{display:block;font-size:26px;font-weight:800;letter-spacing:-.03em;font-family:var(--mono)}
+.stats span{font-size:11.5px;color:var(--muted)}
+h2.sec{font-size:24px;font-weight:700;letter-spacing:-.035em;border-bottom:1px solid var(--ink);padding-bottom:12px;margin:42px 0 20px;display:flex;align-items:center;gap:12px}
+h2.sec .no{background:var(--accent);color:#fff;width:26px;height:26px;font-size:12px;font-family:var(--mono);display:inline-flex;align-items:center;justify-content:center;flex:none}
+h2.sec .note{margin-left:auto;font-size:12px;font-weight:400;color:var(--muted);font-family:var(--mono);letter-spacing:0}
+.lead{border-left:2px solid var(--accent);padding:2px 0 2px 18px;font-size:14.5px;color:var(--ink);margin-bottom:26px;line-height:1.9}
+.lead b{font-weight:700}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);background:var(--surface);margin-bottom:34px}
+.grid3 > div{padding:20px 22px;border-right:1px solid var(--line)}
+.grid3 > div:last-child{border-right:none}
+.grid3 h3{font-size:14px;font-weight:700;margin-bottom:6px}
+.grid3 p{font-size:12.5px;color:var(--muted);line-height:1.75}
+.grid3 .k{font-family:var(--mono);font-size:10.5px;color:var(--accent);letter-spacing:.5px;display:block;margin-bottom:8px}
+.ptable{width:100%;border:1px solid var(--line);background:var(--surface);border-collapse:collapse;margin-bottom:14px;font-size:13.5px;line-height:1.75}
+.ptable th{text-align:left;font-size:11.5px;color:var(--muted);font-weight:600;padding:12px 16px;border-bottom:1px solid var(--ink);white-space:nowrap}
+.ptable td{padding:12px 16px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+.ptable tr:last-child td{border-bottom:none}
+.ptable td.n{font-family:var(--mono);color:var(--muted);white-space:nowrap}
+.ptable td.item{font-weight:700;white-space:nowrap}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;color:var(--accent);border:1px solid var(--accent);padding:1px 6px;margin-left:6px;vertical-align:1px}
+.src{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.opp{color:var(--accent);font-weight:600}
+.trend{background:var(--surface);border:1px solid var(--line);padding:24px 26px;margin-bottom:14px;display:grid;grid-template-columns:56px 1fr;gap:20px}
+.trend .idx{font-family:var(--mono);font-size:26px;font-weight:700;color:var(--line);letter-spacing:-.04em;line-height:1}
+.trend h3{font-size:19.5px;font-weight:700;letter-spacing:-.03em;line-height:1.45}
+.trend .meta{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--muted);margin:9px 0 12px;letter-spacing:.2px}
+.trend .meta .d{color:var(--accent)}
+.trend p{font-size:14px;line-height:1.9}
+.trend .why{border-top:1px dashed var(--line);margin-top:14px;padding-top:12px;font-size:13.5px;line-height:1.85}
+.trend .why b{color:var(--accent)}
+.note-box{border:1px solid var(--line);border-left:2px solid var(--accent);background:var(--surface);padding:18px 22px;font-size:13px;color:var(--muted);line-height:1.9;margin-top:26px}
+.log{border:1px solid var(--line);background:var(--surface)}
+.log div{display:flex;gap:16px;padding:13px 20px;border-bottom:1px solid var(--line-soft);font-size:13.5px;align-items:baseline}
+.log div:last-child{border-bottom:none}
+.log .dt{font-family:var(--mono);font-size:11px;color:var(--muted);flex:none;width:110px}
+footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.credit{text-align:center;color:var(--muted);font-size:11.5px;margin:18px auto 8px;line-height:1.9;font-family:var(--mono)}
+@media(max-width:900px){
+  .grid3{grid-template-columns:1fr}
+  .grid3 > div{border-right:none;border-bottom:1px solid var(--line)}
+  .trend{grid-template-columns:1fr;gap:8px}
+  .trend .idx{font-size:16px}
+  .topnav .inner{height:auto;flex-wrap:wrap;row-gap:4px;padding:12px 16px 8px}
+  .navtabs{order:3;width:100%;flex:none}
+  .wrap{padding:0 16px 30px}
+  .page-hero{padding:28px 0 22px}
+  .page-hero .acts{margin-left:0}
+  .ptable{display:block;overflow-x:auto}
+}
+
+.modeltabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 30px}
+.modeltabs a{border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:13px;font-weight:700;padding:9px 14px}
+.modeltabs a:hover{border-color:var(--ink)}
+.modelhead{margin:56px 0 22px;border-top:2px solid var(--ink);padding-top:22px}
+.modeltag{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.5px;display:block;margin-bottom:8px}
+.modelhead h2{font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.04em;line-height:1.1}
+.modelhead p{font-size:13.5px;color:var(--muted);line-height:1.85;margin-top:10px;max-width:880px}
+h2.sec .no{width:auto;min-width:26px;padding:0 6px}
+
+.machine-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:0 0 34px}
+.mcard{display:block;border:1px solid var(--line);background:var(--surface);overflow:hidden}
+.mcard:hover{border-color:var(--ink)}
+.mcard img{width:100%;height:260px;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
+.mcard .body{padding:20px 22px}
+.mcard .top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:8px}
+.mcard .brand{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.5px}
+.mcard .status{font-family:var(--mono);font-size:11px;color:var(--accent);border:1px solid var(--accent);padding:2px 7px;white-space:nowrap}
+.mcard h2{font-size:30px;font-weight:800;letter-spacing:-.04em;line-height:1.1}
+.mcard p{font-size:13.5px;color:var(--muted);line-height:1.85;margin-top:10px}
+.mstats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 14px;margin:16px 0}
+.mstats div{border-top:1px solid var(--line-soft);padding-top:8px}
+.mstats b{display:block;font-family:var(--mono);font-size:15px;letter-spacing:-.02em}
+.mstats span{font-size:11.5px;color:var(--muted)}
+.mcard .verdict{border-left:2px solid var(--accent);padding-left:12px;font-size:13.5px;line-height:1.85}
+.mcard .cta{margin-top:16px;font-weight:700;color:var(--accent);font-size:13.5px}
+@media(max-width:900px){.machine-grid{grid-template-columns:1fr}.mcard img{height:220px}}
+</style>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-theme="light">
+<nav class="topnav">
+  <div class="inner">
+    <a class="logo" href="index.html"><span class="mark">⬡</span>一言智造</a>
+    <div class="navtabs">
+      <a href="index.html#workspace">首页总览</a>
+      <a href="weekly-trends.html">每周趋势</a>
+      <a href="new3dp.html" class="active">New3DP</a>
+      <a href="index.html#tools">打印工具</a>
+      <a href="index.html#resources">资源中心</a>
+      <a href="index.html#community">社区交流</a>
+    </div>
+    <div class="nav-right">
+      <button class="tbtn t-light on" data-t="light" title="浅色模式" aria-label="浅色模式">☀</button>
+      <button class="tbtn t-dark" data-t="dark" title="深色模式" aria-label="深色模式">☾</button>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="page-hero">
+    <div>
+      <h1>P3C</h1>
+      <div class="sub">拓竹 P 系列多头机 · 2026-11-24 发布 · New3DP 子页面 · 北京时间<br>新机器介绍与评测：关键规格、优缺点、买不买、第三方机会与总结，来源分开标注。当前版本 v2.1 · 2026-11-27。</div>
+    </div>
+    <div class="acts">
+      <a class="pbtn" href="new3dp.html">← 返回 New3DP</a>
+      <a class="pbtn" href="new3dp.html#compare">对照总览 →</a>
+      <a class="pbtn" href="new3dp-h3c.html">H3C 子页面 →</a>
+    </div>
+  </div>
+
+<figure class="herofig">
+    <img src="assets/img/p3c-hero.jpg" alt="拓竹 P3C 整机：顶部 AMS 3P，腔内 7 个工具工位" loading="lazy">
+    <figcaption>拓竹 P3C + AMS 3P · 图片：拓竹官方宣传图</figcaption>
+  </figure>
+
+  <div class="stats">
+    <div><b>10</b><span>优点（官方规格 + 首发实测）</span></div>
+    <div><b>10</b><span>不足（减配集中在仓温 / 烘干 / 上料）</span></div>
+    <div><b>6 秒</b><span>完整换料（切换本身 3.4 秒）</span></div>
+    <div><b>7,499 元起</b><span>国内媒体报道 · 国补预估 6,374.2 元起</span></div>
+  </div>
+
+  <div class="lead">一句话结论：<b>多色 / 多材料打得多、预算在七千档，P3C 是 H3C 闪切的下放版。</b>常打 ABS / ASA、频繁换卷、只打单色，先别急；仓温和自动上料的缺口，比参数表更日常。</div>
+
+  <div class="grid3">
+    <div><span class="k">主线 01</span><h3>同代闪切下放</h3><p>7 槽 Swaptek，标配 5 头 + 2 空槽，完整换料约 6 秒。每个工具独立料路、加热与连接，废料大幅减少，但擦料塔还在。</p></div>
+    <div><span class="k">主线 02</span><h3>差价来自尺寸和热量</h3><p>成型体积 256×256×260mm，喷嘴 300°C、热床 110°C，无主动仓温。便宜不是白来的，工程料边界先划清。</p></div>
+    <div><span class="k">主线 03</span><h3>便利性减配最明显</h3><p>AMS 3P 无自动上料，烘干另购且只烘 2 槽。频繁换卷的人，会比看参数表更早感受到这台机器的取舍。</p></div>
+  </div>
+
+  <h2 class="sec" id="p3c-specs"><span class="no">P1</span>关键规格 / 实测数<span class="note">官方标称 / 首发实测对照</span></h2>
+  <table class="ptable">
+    <tr><th>项目</th><th>数值</th><th>来源</th></tr>
+    <tr><td class="item">发布 / 价格</td><td>2026-11-24 发布；国内标准版首发 7499 元起为媒体报道口径，国补预估 6374.2 元起，官方人民币商店页待复核</td><td class="src">官方发布 / 媒体报道</td></tr>
+    <tr><td class="item">工具 / 换料</td><td>7 槽 Swaptek，标配 5 个 0.4mm PrintTool + 2 空槽；完整换料约 6 秒，切换本身 3.4 秒，首发实测约合</td><td class="src">官方 / 首发实测</td></tr>
+    <tr><td class="item">成型 / 温度</td><td>256×256×260mm；喷嘴 300°C、热床 110°C；无主动仓温（官方规格未列，首发实测确认）</td><td class="src">官方规格 / 首发实测</td></tr>
+    <tr><td class="item">AMS 3P</td><td>7 卷密封存放；无自动上料；烘干为另购模块，双槽最高 75°C</td><td class="src">官方 / 首发实测</td></tr>
+    <tr><td class="item">扩展</td><td>经 1 号 PrintTool 缓冲器最多接 4 台外部 AMS，最高 22 色；外接只喂 1 号工具</td><td class="src">官方 / FauxHammer</td></tr>
+    <tr><td class="item">尺寸 / 重量</td><td>413×538×540mm，含 AMS 3P 重 26.5kg；空气过滤 H11 HEPA（过滤口径首发实测表述不一致，本页不展开）</td><td class="src">官方规格 / 首发实测</td></tr>
+    <tr><td class="item">评分</td><td>How-To Geek 9/10；FauxHammer 称多色打印出色、便利性缺失（早期体验机，拓竹免费提供）</td><td class="src">首发实测</td></tr>
+  </table>
+
+  <h2 class="sec" id="p3c-pros"><span class="no">P2</span>优点<span class="note">10 条 · 每条后附厂商心得与机会（橙色字）</span></h2>
+  <table class="ptable">
+    <tr><th>#</th><th>项目</th><th>具体表现</th><th>来源</th><th>厂商心得</th><th>机会</th></tr>
+    <tr><td class="n">01</td><td class="item">SwapTek 7 槽下放</td><td>7 槽 Swaptek，标配 5 个 0.4mm PrintTool + 2 空槽；完整换料约 6 秒，切换本身 3.4 秒，首发实测约合</td><td class="src">官方 / 首发实测</td><td>把 H3C 的换头架构压到 P 系列尺寸</td><td class="opp">补齐 2 个工具头、0.2 / 0.6 / 0.8 混打套装</td></tr>
+    <tr><td class="n">02</td><td class="item">废料大幅减少</td><td>换头省掉共用喷嘴清色排料；仍有擦料塔，可关、可擦进填充，关了可能影响质量，不能写零废料</td><td class="src">首发实测</td><td>省的是清色排料，不是消灭擦料塔</td><td class="opp">切片优化、擦料塔小型化</td></tr>
+    <tr><td class="n">03</td><td class="item">全幅面可用</td><td>每个工具都能打满 256×256mm，无重叠受限区；文档称兼容 P2S / X2D 打印板</td><td class="src">FauxHammer / 文档</td><td>P 系列尺寸里把换头做满幅面</td><td class="opp">第三方兼容板、满幅面多色模型</td></tr>
+    <tr><td class="n">04</td><td class="item">硬化钢喷嘴 HRC 55+</td><td>全硬化钢喷嘴，可打碳纤 / 玻纤增强料；喷嘴最高 300°C、热床最高 110°C</td><td class="src">官方规格</td><td>温度降了，耐磨没降</td><td class="opp">增强料小件、耐磨喷嘴备件</td></tr>
+    <tr><td class="n">05</td><td class="item">FlexFeed 双线径</td><td>凸轮 + PMSM 电机电子控夹紧力，支持 1.75mm 与 2.85mm；2.85mm 仅旁路进料</td><td class="src">官方规格</td><td>软料入口保留，但 2.85mm 不是 AMS 直达</td><td class="opp">2.85mm TPU、旁路进料套件</td></tr>
+    <tr><td class="n">06</td><td class="item">混喷嘴、混材料同打</td><td>0.2 / 0.4 / 0.6 / 0.8mm 可混用；官方手表例：表盘 0.2mm、壳体 0.4mm、TPU 带 2.85mm</td><td class="src">官方</td><td>小尺寸机器也能做一件多工艺</td><td class="opp">多规格喷嘴套装、混打模型库</td></tr>
+    <tr><td class="n">07</td><td class="item">AMS 3P 集成密封</td><td>7 卷独立密封仓，适合潮湿环境；料仓集成在机器顶部</td><td class="src">官方 / 首发实测</td><td>把料仓做进机器顶部，桌面占地更整齐</td><td class="opp">防潮件、料卷适配器</td></tr>
+    <tr><td class="n">08</td><td class="item">外接扩展到 22 色</td><td>经 1 号 PrintTool 缓冲器最多接 4 台外部 AMS，最高 22 色；只喂 1 号工具</td><td class="src">官方 / FauxHammer</td><td>扩展靠外接，不恢复每个工具的自动上料</td><td class="opp">外接 AMS 支架、1 号工具多色工作流</td></tr>
+    <tr><td class="n">09</td><td class="item">桌面尺寸更友好</td><td>413×538×540mm，含 AMS 3P 重 26.5kg；对比 H3C 约 1 米高、36.28kg</td><td class="src">官方规格 / 对比</td><td>用尺寸换价格，桌面场景更现实</td><td class="opp">桌面支架、减震垫</td></tr>
+    <tr><td class="n">10</td><td class="item">首发评分高</td><td>How-To Geek 9/10，并列为其 2026 年推荐榜第 1；FauxHammer 称多色打印出色但便利性缺失</td><td class="src">首发实测</td><td>推荐点在多色体验，不在省心程度</td><td class="opp">多色模型库、CMYKW 玩法</td></tr>
+  </table>
+
+  <h2 class="sec" id="p3c-cons"><span class="no">P3</span>不足<span class="note">10 条 · 每条后附厂商心得与机会（橙色字）</span></h2>
+  <table class="ptable">
+    <tr><th>#</th><th>项目</th><th>具体表现</th><th>来源</th><th>改进可能</th><th>厂商心得</th><th>机会</th></tr>
+    <tr><td class="n">01</td><td class="item">无主动仓温</td><td>官方规格未列仓温加热，首发实测确认无主动仓温；ABS 靠热床暖仓，ABS / ASA 等工程料不理想</td><td class="src">官方规格 / 首发实测</td><td>选 H3C / 下代</td><td>仓温是 P3C 与 H3C 最硬的分界</td><td class="opp">第三方保温方案（效果待验证）</td></tr>
+    <tr><td class="n">02</td><td class="item">AMS 3P 无自动上料</td><td>须在触屏启动上料后手动推料过 PTFE 到挤出机；推早了还要回拉重推；H3C 有上料无下料，P3C 两者皆无</td><td class="src">首发实测</td><td>下代 / 使用注意</td><td>省掉自动上料机构，换卷摩擦转给用户</td><td class="opp">上料辅助工具、料路导向件</td></tr>
+    <tr><td class="n">03</td><td class="item">烘干另购且只烘 2 槽</td><td>标配无烘干，另购模块最高 75°C、双槽同时烘干；AMS 3P 本体为 7 卷密封存放</td><td class="src">官方 / 首发实测</td><td>另购 / 第三方外置烘干</td><td>烘干从标配变成选配</td><td class="opp">第三方外置烘干、干燥盒</td></tr>
+    <tr><td class="n">04</td><td class="item">标配只有 5 头</td><td>7 槽标配 5 个 0.4mm PrintTool，另留 2 空槽；0.2 / 0.6 / 0.8mm 另购；国内单头价待核实</td><td class="src">官方规格 / 待核实</td><td>另购</td><td>空槽是扩展位，也是后续支出</td><td class="opp">第三方 PrintTool / 喷嘴平替</td></tr>
+    <tr><td class="n">05</td><td class="item">温度上限低于 H3C</td><td>喷嘴 300°C、热床 110°C，低于 H3C 的 350°C / 120°C，且没有 65°C 仓温</td><td class="src">官方规格</td><td>选 H3C</td><td>热量预算让给价格</td><td class="opp">高温料改走 H3C</td></tr>
+    <tr><td class="n">06</td><td class="item">成型体积小一圈</td><td>256×256×260mm，明显小于 H3C 的 330×320×325mm</td><td class="src">官方规格</td><td>选 H3C / 分件打印</td><td>P 系列尺寸是价格前提</td><td class="opp">分件打印、拼接模型</td></tr>
+    <tr><td class="n">07</td><td class="item">擦料塔仍在</td><td>仍有擦料塔，可关、可擦进填充，关了可能影响质量；上料时也有初始排料</td><td class="src">首发实测</td><td>切片优化</td><td>废料大减不等于零废料</td><td class="opp">切片优化</td></tr>
+    <tr><td class="n">08</td><td class="item">外接 AMS 只喂 1 号工具</td><td>最多 4 台外部 AMS 到 22 色，但只喂 1 号工具，不恢复每个工具的自动上料与烘干</td><td class="src">FauxHammer</td><td>使用注意</td><td>22 色是扩展上限，不是 7 头全自动</td><td class="opp">1 号工具多色工作流</td></tr>
+    <tr><td class="n">09</td><td class="item">频繁换卷摩擦明显</td><td>手动上料要人守在机器旁，频繁换卷的用户槽点最明显</td><td class="src">FauxHammer</td><td>下代</td><td>便利性减配比规格减配更日常</td><td class="opp">上料辅助、料卷管理</td></tr>
+    <tr><td class="n">10</td><td class="item">国内价格口径待官方复核</td><td>7499 元为媒体报道口径，6374.2 元为国补预估；直降截止日为单家媒体口径，本页不写</td><td class="src">媒体报道 / 待核实</td><td>下单前查官方商店</td><td>首发价传播快，官方人民币页要复核</td><td class="opp">等官方价 / 促销</td></tr>
+  </table>
+
+  <h2 class="sec" id="p3c-gap"><span class="no">P4</span>与 H3C 差价和减配<span class="note">标准价口径 · 国内价待官方复核</span></h2>
+  <div class="trend">
+    <div class="idx">01</div>
+    <div>
+      <h3>差价约 9000 元，核心闪切没砍</h3>
+      <div class="meta"><span class="d">H3C 16499 元起 / P3C 7499 元起（媒体报道）</span><span>同为完整换料约 6 秒</span></div>
+      <p>P3C 保留 Swaptek 独立料路、硬化钢喷嘴、混喷嘴混材料和 1400mm/s 标称速度。真正拉开差距的不是换头速度，而是成型体积、温度上限和日常便利性。</p>
+      <div class="why"><b>没减的：</b>6 秒完整换料、HRC 55+ 硬化钢、0.2–0.8mm 混打、2.85mm 软料入口（旁路进料）。</div>
+    </div>
+  </div>
+  <div class="trend">
+    <div class="idx">02</div>
+    <div>
+      <h3>减配三处：仓温、烘干、自动上料</h3>
+      <div class="meta"><span class="d">官方规格 / 首发实测</span><span>工程料与换卷摩擦最明显</span></div>
+      <p>无主动仓温决定 ABS / ASA 边界；烘干另购且只烘 2 槽；AMS 3P 无自动上料，换卷要手动推料。再加上成型体积小一圈、喷嘴与热床温度下调，P3C 的便宜有明确来源。</p>
+      <div class="why"><b>定性：</b>P3C 是“体验下放”，不是“旗舰平替”。多色体验接近，工程料和省心程度不接近。</div>
+    </div>
+  </div>
+
+  <h2 class="sec" id="p3c-buy"><span class="no">P5</span>买不买<span class="note">按材料与换卷频率分</span></h2>
+  <div class="trend">
+    <div class="idx">→</div>
+    <div>
+      <h3>买：多色 / 多材料打得多，预算在七千档</h3>
+      <div class="meta"><span class="d">How-To Geek 9/10</span><span>桌面空间有限更合适</span></div>
+      <p>一件模型换料次数越多，6 秒换头和废料下降的收益越大。想玩 CMYKW、软硬混打、0.2mm 细节 + 0.4mm 壳体同件完成，P3C 的价格带很有吸引力。</p>
+      <div class="why"><b>不买：</b>主要打单色、偶尔多色，先看 P2S / X2D；常打 ABS / ASA 等需仓温的工程料，选 H3C；频繁换卷，手动上料的摩擦会天天出现。</div>
+    </div>
+  </div>
+
+  <h2 class="sec" id="p3c-third"><span class="no">P6</span>第三方机会<span class="note">官方缺口 · 第三方能补的部分</span></h2>
+  <table class="ptable">
+    <tr><th>#</th><th>机会</th><th>现状</th><th>来源</th></tr>
+    <tr><td class="n">01</td><td class="item">补齐工具头 / 喷嘴平替</td><td>标配 5 头 + 2 空槽，0.2 / 0.6 / 0.8mm 与 2.85mm 工具都要另购；国内单头价待核实，第三方平替有空间</td><td class="src">官方规格 / 待核实</td></tr>
+    <tr><td class="n">02</td><td class="item">上料辅助 / 料路导向</td><td>AMS 3P 无自动上料，手动推料过 PTFE 是主要槽点；导向、限位、快速对接类小件有机会</td><td class="src">首发实测</td></tr>
+    <tr><td class="n">03</td><td class="item">外置烘干 / 干燥盒</td><td>标配无烘干，另购模块只烘 2/7 卷；常打吸潮料的用户需要外置烘干或干燥盒补位</td><td class="src">官方 / 首发实测</td></tr>
+    <tr><td class="n">04</td><td class="item">桌面支架 / 保温方案</td><td>整机 26.5kg、桌面尺寸友好，支架与减震垫可做；保温方案只能写机会，效果未验证，不承诺仓温替代</td><td class="src">官方规格 / 待验证</td></tr>
+  </table>
+
+  <h2 class="sec" id="p3c-summary"><span class="no">P7</span>总结<span class="note">总体判断 · 首发口径</span></h2>
+  <div class="trend">
+    <div class="idx">→</div>
+    <div>
+      <h3>闪切下放成功，便利性没有一起下放</h3>
+      <div class="meta"><span class="d">总体判断</span><span>多色多材料用户可买，工程料用户慎入</span></div>
+      <p>P3C 把 H3C 最有辨识度的换头体验带到七千档，6 秒换料、混喷嘴、软料入口都在；代价是无主动仓温、烘干另购、手动上料和更小的成型体积。它适合把多色当日常的人，不适合把省心和工程料当日常的人。</p>
+      <div class="why"><b>用法建议：</b>先按最常用的 5 种料配满标配头，2 个空槽留给 0.2mm 细节或 2.85mm 软料；下单前复核国内官方价与单头价。</div>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <b>阅读说明：</b>本页为 New3DP 的 P3C 子页面，不是评测定稿。国内 7499 元为媒体报道口径、6374.2 元为国补预估，官方人民币商店页待复核；仓温写“官方规格未列，首发实测确认无主动仓温”；6 秒写完整换料，切换本身 3.4 秒；过滤口径两家首发实测表述不一致，本页不展开。<br>
+    更新方式：把新观测 / 新评测发给我，我先核对来源，再追加到本页与 New3DP 更新日志里，版本号 +0.1；固件修掉的问题会移到「已修复」一栏，不直接删。
+  </div>
+
+  <footer>
+    <span>P3C · New3DP · v2.1 · 2026-11-27</span>
+    <span>作者：一言智造 One3DP · 数据来自用户实测与公开报道</span>
+  </footer>
+  <div class="credit">持续更新 · 北京时间 · 有新观测或新评测就补</div>
+</div>
+
+<script>
+(function(){
+  var KEY='one3dp_theme';
+  function apply(t){document.body.dataset.theme=t;document.querySelectorAll('.tbtn').forEach(function(b){b.classList.toggle('on',b.dataset.t===t);});try{localStorage.setItem(KEY,t);}catch(e){}}
+  document.querySelectorAll('.tbtn').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.t);});});
+  try{var v=localStorage.getItem(KEY);if(v)apply(v);}catch(e){}
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>
