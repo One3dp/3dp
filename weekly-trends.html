@@ -45,7 +45,7 @@ h2.sec .note{margin-left:auto;font-size:12px;font-weight:400;color:var(--muted);
 .grid3 h3{font-size:15px;font-weight:700;margin-bottom:6px}
 .grid3 p{font-size:12.5px;color:var(--muted);line-height:1.75}
 .grid3 .k{font-family:var(--mono);font-size:10.5px;color:var(--accent);letter-spacing:.5px;display:block;margin-bottom:8px}
-.trends{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:30px}
+.trends{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:30px}
 .trend{background:var(--surface);border:1px solid var(--line);padding:18px 20px;margin:0;display:grid;grid-template-columns:1fr;gap:8px;transition:border-color .16s}
 .trend:hover{border-color:var(--accent)!important}
 .trend .idx{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-soft);border:1px solid var(--line);padding:2px 9px;justify-self:start;letter-spacing:.5px}
@@ -58,7 +58,7 @@ h2.sec .note{margin-left:auto;font-size:12px;font-weight:400;color:var(--muted);
 .trend .why b{color:var(--accent)}
 .trend .src{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:2px;padding-top:8px;border-top:1px dashed var(--line-soft);word-break:break-all}
 .trend .src a:hover{color:var(--accent);text-decoration:underline}
-.radar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.radar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .radar a{display:flex;gap:12px;padding:14px 16px;border:1px solid var(--line);background:var(--surface);font-size:12.8px;align-items:baseline;transition:border-color .16s}
 .radar a:hover{border-color:var(--accent);background:var(--accent-soft)}
 .radar .dt{font-family:var(--mono);font-size:11px;color:var(--accent);background:var(--accent-soft);border:1px solid var(--line);padding:2px 7px;flex:none}
@@ -66,6 +66,9 @@ h2.sec .note{margin-left:auto;font-size:12px;font-weight:400;color:var(--muted);
 .note-box{border:1px solid var(--line);border-left:2px solid var(--accent);background:var(--surface);padding:18px 22px;font-size:13px;color:var(--muted);line-height:1.9;margin-top:26px}
 footer{border-top:1px solid var(--ink);margin-top:70px;padding:26px 0 10px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .credit{text-align:center;color:var(--muted);font-size:11.5px;margin:18px auto 8px;line-height:1.9;font-family:var(--mono)}
+@media(max-width:1100px){
+  .trends,.radar{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:900px){
   .grid3,.trends,.radar{grid-template-columns:1fr}
   .trend{grid-template-columns:1fr;gap:8px}
