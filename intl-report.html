@@ -90,6 +90,35 @@ footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12px;borde
 .pbtn{font-size:12px;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.45);padding:5px 14px;border-radius:999px;cursor:pointer;font-weight:600;font-family:inherit;text-decoration:none;display:inline-block;transition:background .15s}
 .pbtn:hover{background:rgba(255,255,255,.3)}
 @media(max-width:640px){.topnav .inner{flex-wrap:wrap;row-gap:4px;height:auto;padding:12px 16px 8px}.navtabs{order:3;width:100%;flex:none}.nav-right{gap:8px}.navtabs a{padding:8px 12px}}
+
+/* 2026-11-27 按国内每周热点版式重排：编号章节 + 图片卡片 + 横排视频卡 */
+h2.sec{display:flex;align-items:center;gap:10px;font-size:21px;margin:30px 0 6px}
+h2.sec .no{background:var(--accent);color:#fff;border-radius:8px;width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;font-size:16px;flex:none}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 4px}
+.grid3{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));align-items:stretch;counter-reset:vc}
+.card{position:relative;display:flex;flex-direction:column;height:100%}
+.card .imgbox{height:170px;background:var(--line-soft,#eef1f4);position:relative;overflow:hidden;flex:none}
+.card-img{width:100%;height:100%;object-fit:cover;display:block}
+.card .imgbox.ph{display:flex;align-items:center;justify-content:center;background:linear-gradient(140deg,var(--accent) 0%,#7c3aed 125%);color:#fff;font-weight:700;font-size:15px;letter-spacing:.5px}
+.card .ctag{position:absolute;left:10px;top:10px;z-index:2;background:rgba(13,43,62,.85);color:#fff;font-size:12px;padding:2px 9px;border-radius:20px}
+.card .ctitle{font-size:15px;font-weight:700;line-height:1.4;min-height:2.8em;margin:12px 16px 0}
+.card .cdate{font-size:12px;color:var(--accent);margin:4px 16px 0}
+.card .cbody{font-size:13px;line-height:1.75;margin:6px 16px 0}
+.card .cpoints{margin:auto 16px 0;padding:10px 0 14px 18px;font-size:12.5px;line-height:1.7;color:var(--muted)}
+.mcard{display:flex;flex-direction:column;height:100%}
+.mcard .mimg{height:170px;overflow:hidden;flex:none}
+.mcard .mimg img{width:100%;height:100%;object-fit:cover;display:block}
+.mcard .mrank{position:absolute;left:10px;top:10px;background:var(--accent);color:#fff;border-radius:6px;padding:2px 8px;font-size:12px;font-weight:700}
+.mcard .mtitle{font-size:14px;font-weight:700;line-height:1.45;min-height:2.9em;margin:10px 14px 0}
+.mcard .mmeta{font-size:11.5px;color:var(--muted);margin:4px 14px 0}
+.mcard .mstats{display:flex;gap:6px;flex-wrap:wrap;margin:auto 14px 0;padding:10px 0 12px;font-size:11.5px;color:var(--muted)}
+.mcard .mlink{margin:0 14px 12px;font-size:11.5px}
+.vcard{display:grid;grid-template-columns:118px 1fr;gap:4px 12px;padding:12px;height:100%;counter-increment:vc;align-content:start}
+.vcard .vimg{grid-row:1/3}
+.vcard .vimg img{width:118px;height:72px;object-fit:cover;border-radius:8px;display:block}
+.vcard .vtitle{grid-column:2;font-size:13px;font-weight:600;line-height:1.4}
+.vcard .vtitle::before{content:counter(vc);background:var(--accent);color:#fff;width:20px;height:20px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-right:6px;vertical-align:-4px}
+.vcard .vmeta{grid-column:2;font-size:11.5px;color:var(--muted)}
 </style>
 <style data-noimg>.imgbox .noimg,.mimg .noimg,.vimg .noimg{display:block;width:100%;height:100%;background:linear-gradient(135deg,#e6edff,#efe4ff)}.imgbox .noimg:after,.mimg .noimg:after,.vimg .noimg:after{content:"\2b22";display:flex;align-items:center;justify-content:center;height:100%;font-size:34px;opacity:.3;color:#2563ed}</style><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141414'/%3E%3Cpath d='M16 6l9 5v10l-9 5-9-5V11z' fill='none' stroke='%23e64b23' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/site.css">
@@ -123,10 +152,11 @@ footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12px;borde
   <div class="btns"><a class="pbtn" href="index.html">← 返回工作站</a></div>
 </header>
 
-<h2>一、家用3D打印热点（2026-11-15 ~ 11-22）</h2>
+<h2 class="sec"><span class="no">1</span>家用3D打印热点（2026-11-15 ~ 11-22）</h2>
 <div class="lead">以下内容精选自 <b>3DBite</b>、<b>All3DP</b>、<b>makers101</b> 等国际媒体，<b>只收录家用 / 消费级 3D 打印</b>相关：新品发布、品牌动态、社区活动与实用玩法。</div>
 <div class="grid3">
 <div class="card">
+  <div class="imgbox"><img class="card-img" src="https://3dbite.com/wp-content/uploads/2026/11/resin-vs-FDM-for-miniatures.jpeg" alt="打微缩手办，FDM 追上树脂了吗？" loading="lazy"></div>
   <span class="ctag">📰 3DBite · 实用玩法</span>
   <div class="ctitle"><a href="https://3dbite.com/resin-vs-fdm-miniatures-2026-has-the-gap-closed/" target="_blank" rel="noopener">打微缩手办，FDM 追上树脂了吗？</a></div>
   <div class="cdate">2026-11-21</div>
@@ -139,6 +169,7 @@ footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12px;borde
   </ul>
 </div>
 <div class="card">
+  <div class="imgbox ph"><span>All3DP</span></div>
   <span class="ctag">📰 All3DP · 新品发布</span>
   <div class="ctitle"><a href="https://all3dp.com/6/the-end-of-overhangs-melt3d-debuts-a-tilting-bed-printer-at-formnext/" target="_blank" rel="noopener">悬垂不用支撑了？Melta MK1 打印床能倾斜 45°</a></div>
   <div class="cdate">2026-11-21</div>
@@ -150,6 +181,7 @@ footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12px;borde
   </ul>
 </div>
 <div class="card">
+  <div class="imgbox"><img class="card-img" src="https://3dbite.com/wp-content/uploads/2026/11/best-beginner-3D-printer.jpeg" alt="新手第一台还默认选拓竹 A1 吗？" loading="lazy"></div>
   <span class="ctag">📰 3DBite · 品牌动态</span>
   <div class="ctitle"><a href="https://3dbite.com/is-bambu-lab-still-the-default-recommendation-for-beginners/" target="_blank" rel="noopener">新手第一台还默认选拓竹 A1 吗？</a></div>
   <div class="cdate">2026-11-20</div>
@@ -162,6 +194,7 @@ footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12px;borde
   </ul>
 </div>
 <div class="card">
+  <div class="imgbox"><img class="card-img" src="https://3dbite.com/wp-content/uploads/2026/11/Co-Print-Quadro.jpeg" alt="四头同轨、1 秒换色：Co Print Quadro 登陆众筹" loading="lazy"></div>
   <span class="ctag">📰 3DBite · 新品发布</span>
   <div class="ctitle"><a href="https://3dbite.com/co-print-quadro-four-toolhead-kickstarter-preview/" target="_blank" rel="noopener">四头同轨、1 秒换色：Co Print Quadro 登陆众筹</a></div>
   <div class="cdate">2026-11-19</div>
@@ -174,6 +207,7 @@ footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12px;borde
   </ul>
 </div>
 <div class="card">
+  <div class="imgbox"><img class="card-img" src="https://makers101.com/wp-content/uploads/2026/11/elegoo-formnext-booth-hero.webp" alt="Elegoo 也加入换头阵营：Centauri X Ultra 四头机亮相" loading="lazy"></div>
   <span class="ctag">📰 makers101 · 新品发布</span>
   <div class="ctitle"><a href="https://makers101.com/elegoo-saturn-5-ultra-centauri-x-ultra/" target="_blank" rel="noopener">Elegoo 也加入换头阵营：Centauri X Ultra 四头机亮相</a></div>
   <div class="cdate">2026-11-19</div>
@@ -186,6 +220,7 @@ footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12px;borde
   </ul>
 </div>
 <div class="card">
+  <div class="imgbox"><img class="card-img" src="https://3dbite.com/wp-content/uploads/2026/11/Creality-K3.jpeg" alt="创想三维 K3 首测：四喷嘴换头机 849 美元" loading="lazy"></div>
   <span class="ctag">📰 3DBite · 新品发布</span>
   <div class="ctitle"><a href="https://3dbite.com/creality-k3-klitek-four-nozzle-printer-first-look/" target="_blank" rel="noopener">创想三维 K3 首测：四喷嘴换头机 849 美元</a></div>
   <div class="cdate">2026-11-18</div>
@@ -198,6 +233,7 @@ footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12px;borde
   </ul>
 </div>
 <div class="card">
+  <div class="imgbox"><img class="card-img" src="https://makers101.com/wp-content/uploads/2026/11/best-full-color-3d-printers-2026-featured.webp" alt="2026 全彩 3D 打印选购指南：三种上色路线怎么挑" loading="lazy"></div>
   <span class="ctag">📰 makers101 · 实用玩法</span>
   <div class="ctitle"><a href="https://makers101.com/full-color-3d-printer/" target="_blank" rel="noopener">2026 全彩 3D 打印选购指南：三种上色路线怎么挑</a></div>
   <div class="cdate">2026-11-18</div>
@@ -210,6 +246,7 @@ footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12px;borde
   </ul>
 </div>
 <div class="card">
+  <div class="imgbox"><img class="card-img" src="https://makers101.com/wp-content/uploads/2026/11/qidi-q3d-og.webp" alt="QIDI Q3D 开启预售：双喷嘴、70°C 热腔，529 美元" loading="lazy"></div>
   <span class="ctag">📰 makers101 · 新品发布</span>
   <div class="ctitle"><a href="https://makers101.com/qidi-q3d/" target="_blank" rel="noopener">QIDI Q3D 开启预售：双喷嘴、70°C 热腔，529 美元</a></div>
   <div class="cdate">2026-11-17</div>
@@ -221,6 +258,7 @@ footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12px;borde
   </ul>
 </div>
 <div class="card">
+  <div class="imgbox"><img class="card-img" src="https://3dbite.com/wp-content/uploads/2026/11/non-planar-3D-printing.jpeg" alt="非平面打印走出论文：开源切片器 PancakeSlicer 来了" loading="lazy"></div>
   <span class="ctag">📰 3DBite · 实用玩法</span>
   <div class="ctitle"><a href="https://3dbite.com/non-planar-3d-printing-explained-pancakeslicer/" target="_blank" rel="noopener">非平面打印走出论文：开源切片器 PancakeSlicer 来了</a></div>
   <div class="cdate">2026-11-17</div>
@@ -233,6 +271,7 @@ footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12px;borde
   </ul>
 </div>
 <div class="card">
+  <div class="imgbox"><img class="card-img" src="https://makers101.com/wp-content/uploads/2026/11/bambu-studio-by-object-white-first-sequence-labels.png" alt="Bambu Studio 逐件打印：一个件失败不连累整板" loading="lazy"></div>
   <span class="ctag">📰 makers101 · 实用玩法</span>
   <div class="ctitle"><a href="https://makers101.com/bambu-studio-print-by-object/" target="_blank" rel="noopener">Bambu Studio 逐件打印：一个件失败不连累整板</a></div>
   <div class="cdate">2026-11-16</div>
@@ -246,7 +285,7 @@ footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12px;borde
 </div>
 </div>
 
-<h2>二、模型榜 · 本周热门（MakerWorld 国际区 + Printables）</h2>
+<h2 class="sec"><span class="no">2</span>模型榜 · 本周热门（MakerWorld 国际区 + Printables）</h2>
 <div class="notice">ℹ <b>口径说明：</b>MakerWorld 无独立「周榜」页面，其官方热门（Trending）榜即平台「本周热度」的最接近口径。Printables 官方 Trending 榜默认近 30 天排序。两榜数据均为接口/页面实时抓取，快照时间见各子榜标题。Printables 网页版不暴露模型详情直链，卡片链接为作者主页 + 站内搜索入口。</div>
 
 <h3 style="font-size:16px;margin:18px 0 10px;color:#1565c0;">🇬🇧 MakerWorld 国际区 · Trending Top 12（快照 2026-11-22 08:14）</h3>
@@ -533,7 +572,7 @@ footer{margin-top:32px;text-align:center;color:var(--muted);font-size:12px;borde
 </div>
 </div>
 
-<h2>三、视频热点 · YouTube（模型 / DIY 热门）</h2>
+<h2 class="sec"><span class="no">3</span>视频热点 · YouTube（模型 / DIY 热门）</h2>
 <div class="notice">ℹ <b>数据说明：</b>3D 打印频道近 30 天内的模型 / DIY 类视频，按真实播放量排序（yt-dlp 实测 view_count）。点击标题跳转至对应视频。</div>
 <div class="grid3">
 <div class="vcard">
